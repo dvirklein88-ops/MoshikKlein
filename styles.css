@@ -255,15 +255,16 @@ html.splash-on .splash.out { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
   .splash .disc, .splash .arm, .splash .box, .splash .shin { opacity: 0; }
   .splash .wrap { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .splash .disc { transform-box: fill-box; transform-origin: center; transform: scale(.92); }
-  .splash .box { transform-box: fill-box; transform-origin: 50% 100%; transform: translateY(-26px); }
-  html.splash-on .splash .disc { animation: settle .45s ease-out forwards; }
+  .splash .disc { transform-box: fill-box; transform-origin: center; transform: scale(.94); }
+  .splash .box > g { transform: translateY(-22px); }
+  html.splash-on .splash .disc { animation: settle .4s ease-out forwards; }
   html.splash-on .splash .arm { animation: fadeIn .35s .1s ease forwards; }
-  html.splash-on .splash .box { animation: drop .35s .3s cubic-bezier(.3, 1.4, .6, 1) forwards; }
-  html.splash-on .splash .wrap { animation: draw .16s calc(.72s + var(--i) * .075s) ease-in-out forwards; }
+  html.splash-on .splash .box { animation: fadeIn .2s .4s ease forwards; }
+  html.splash-on .splash .box > g { animation: drop .35s .4s cubic-bezier(.3, 1.4, .6, 1) forwards; }
+  html.splash-on .splash .wrap { animation: draw .14s calc(.8s + var(--i) * .08s) ease-in-out forwards; }
   html.splash-on .splash .shin { animation: fadeIn .3s 1.45s ease forwards; }
   @keyframes settle { to { opacity: 1; transform: none; } }
-  @keyframes drop { to { opacity: 1; transform: none; } }
+  @keyframes drop { to { transform: none; } }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   @keyframes fadeIn { to { opacity: 1; } }
 

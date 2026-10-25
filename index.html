@@ -64,84 +64,75 @@
 <!-- 1. Splash (shown only when JS adds html.splash-on) -->
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-inner">
-    <svg class="splash-svg" viewBox="0 0 400 330" role="presentation" focusable="false">
+    <svg class="splash-svg" viewBox="0 0 300 300" role="presentation" focusable="false">
       <defs>
-        <radialGradient id="sp-bg" cx="50%" cy="42%" r="60%">
-          <stop offset="0" stop-color="#FFFDF7"/><stop offset=".7" stop-color="#F6ECD6"/><stop offset="1" stop-color="#EBDBB9"/>
-        </radialGradient>
-        <linearGradient id="sp-skin" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#F7DDB5"/><stop offset=".45" stop-color="#EDC897"/><stop offset="1" stop-color="#CF9F6C"/>
+        <clipPath id="sp-disc"><circle cx="150" cy="150" r="128"/></clipPath>
+        <clipPath id="sp-arm"><path d="M300 166 L192 171 Q179 173 177 183 L121.7 69.6 L88.8 84.2 L137 210 Q141 236 167 235 L300 236 Z"/></clipPath>
+        <clipPath id="sp-fist"><rect x="-25" y="-33" width="50" height="53" rx="14"/></clipPath>
+        <linearGradient id="sp-fore" gradientUnits="userSpaceOnUse" x1="159.8" y1="135.4" x2="112.2" y2="156.6">
+          <stop offset="0" stop-color="#fff" stop-opacity=".30"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".6" stop-color="#6b3f17" stop-opacity="0"/><stop offset="1" stop-color="#6b3f17" stop-opacity=".38"/>
         </linearGradient>
-        <linearGradient id="sp-shade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
-          <stop offset=".18" stop-color="#fff" stop-opacity=".28"/>
-          <stop offset=".34" stop-color="#fff" stop-opacity="0"/>
-          <stop offset=".7" stop-color="#5a3412" stop-opacity="0"/>
-          <stop offset="1" stop-color="#5a3412" stop-opacity=".32"/>
+        <linearGradient id="sp-upper" gradientUnits="userSpaceOnUse" x1="0" y1="166" x2="0" y2="236">
+          <stop offset="0" stop-color="#fff" stop-opacity=".30"/><stop offset=".3" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".6" stop-color="#6b3f17" stop-opacity="0"/><stop offset="1" stop-color="#6b3f17" stop-opacity=".38"/>
         </linearGradient>
-        <linearGradient id="sp-front" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#2E2D42"/><stop offset="1" stop-color="#14131F"/>
+        <linearGradient id="sp-xf" gradientUnits="userSpaceOnUse" x1="160.0" y1="200.0" x2="149.4" y2="176.2">
+          <stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/>
         </linearGradient>
-        <radialGradient id="sp-ground" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stop-color="#5a3412" stop-opacity=".22"/><stop offset="1" stop-color="#5a3412" stop-opacity="0"/>
-        </radialGradient>
-        <clipPath id="sp-arm"><path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z"/></clipPath>
-        <clipPath id="sp-fist"><path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z"/></clipPath>
+        <linearGradient id="sp-xu" gradientUnits="userSpaceOnUse" x1="160.0" y1="200.0" x2="149.4" y2="176.2">
+          <stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/>
+        </linearGradient>
+        <mask id="sp-mf" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="300"><rect width="300" height="300" fill="url(#sp-xf)"/></mask>
+        <mask id="sp-mu" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="300"><rect width="300" height="300" fill="url(#sp-xu)"/></mask>
       </defs>
-      <!-- backdrop: soft disc with a thin gold ring (matches the hero portrait) -->
-      <g class="disc">
-        <circle cx="200" cy="150" r="140" fill="url(#sp-bg)" stroke="#B8893B" stroke-width="2"/>
-        <circle cx="200" cy="150" r="152" fill="none" stroke="#B8893B" stroke-opacity=".4" stroke-width="1"/>
-      </g>
-      <g transform="translate(200 150) scale(.78) translate(-207 -128) rotate(-18 207 128)">
-        <ellipse class="arm" cx="205" cy="182" rx="170" ry="14" fill="url(#sp-ground)"/>
-        <!-- forearm and fist -->
+      <g class="disc"><circle cx="150" cy="150" r="128" fill="#FBF6E9" stroke="#B8893B" stroke-width="1.5"/></g>
+      <g clip-path="url(#sp-disc)">
         <g class="arm">
-          <path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z" fill="url(#sp-skin)"/>
-          <path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z" fill="url(#sp-skin)"/>
-          <!-- curled fingers (front) and thumb (top) -->
-          <g fill="url(#sp-skin)" stroke="#B9875A" stroke-width="1.4">
-            <rect x="40" y="114" width="48" height="13" rx="6.5"/>
-            <rect x="38" y="126" width="50" height="13" rx="6.5"/>
-            <rect x="40" y="138" width="48" height="13" rx="6.5"/>
-            <rect x="45" y="150" width="42" height="12" rx="6"/>
+          <path d="M300 166 L192 171 Q179 173 177 183 L121.7 69.6 L88.8 84.2 L137 210 Q141 236 167 235 L300 236 Z" fill="#6b3f17" opacity=".08" transform="translate(5 8)"/>
+          <path d="M300 166 L192 171 Q179 173 177 183 L121.7 69.6 L88.8 84.2 L137 210 Q141 236 167 235 L300 236 Z" fill="#E9C594"/>
+        </g>
+        <!-- strap: from the box on the upper arm, then wound around the forearm -->
+        <g clip-path="url(#sp-arm)" fill="none" stroke="#1C1B2B" stroke-width="10.5">
+          <path class="wrap" style="--i:-1" pathLength="1" d="M214 170 Q196 200 170 232"/>
+          <path class="wrap" style="--i:0" pathLength="1" d="M176.0 157.3 Q146.6 169.8 124.8 199.5"/>
+          <path class="wrap" style="--i:1" pathLength="1" d="M169.6 142.7 Q140.1 155.3 118.3 184.9"/>
+          <path class="wrap" style="--i:2" pathLength="1" d="M163.1 128.1 Q133.6 140.7 111.8 170.3"/>
+          <path class="wrap" style="--i:3" pathLength="1" d="M156.6 113.6 Q127.2 126.1 105.3 155.8"/>
+          <path class="wrap" style="--i:4" pathLength="1" d="M150.1 99.0 Q120.7 111.5 98.8 141.2"/>
+          <path class="wrap" style="--i:5" pathLength="1" d="M143.6 84.4 Q114.2 96.9 92.4 126.6"/>
+        </g>
+        <!-- soft cylindrical light and shadow over skin and strap -->
+        <g class="arm" clip-path="url(#sp-arm)">
+          <path d="M186.0 160.0 L300 150 L300 250 L110 250 L112.9 192.5 Z" fill="url(#sp-upper)" mask="url(#sp-mu)"/>
+          <path d="M196.6 183.8 L139.0 54.2 L65.8 86.6 L123.4 216.2 Z" fill="url(#sp-fore)" mask="url(#sp-mf)"/>
+        </g>
+        <g class="arm" transform="translate(102.3 70.1) rotate(-24.0)">
+          <rect x="-25" y="-30" width="50" height="50" rx="16" fill="#CC9C68"/>
+          <rect x="-24" y="-31" width="11.4" height="27" rx="5.7" fill="#E9C594"/>
+          <rect x="-11.6" y="-33" width="11.4" height="29" rx="5.7" fill="#E9C594"/>
+          <rect x="0.8" y="-33" width="11.4" height="29" rx="5.7" fill="#E9C594"/>
+          <rect x="13.2" y="-30" width="10.8" height="26" rx="5.4" fill="#E9C594"/>
+          <g fill="#F5DAB2" opacity=".9">
+            <rect x="-21.5" y="-29" width="6" height="8" rx="3"/><rect x="-9" y="-31" width="6" height="8" rx="3"/>
+            <rect x="3.3" y="-31" width="6" height="8" rx="3"/><rect x="15.5" y="-28" width="6" height="8" rx="3"/>
           </g>
-          <path d="M116 112 C104 103 84 101 66 106 C60 108 60 116 66 117 C82 118 100 119 114 121 Z" fill="#EAC08F" stroke="#B9875A" stroke-width="1.4"/>
-          <path d="M70 108 C78 106 88 106 96 107" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+          <rect x="-22" y="-1" width="40" height="12" rx="6" fill="#CC9C68" opacity=".7"/>
+          <rect x="-23" y="-5" width="40" height="12" rx="6" fill="#E9C594"/>
+          <rect x="-19" y="-4" width="22" height="4" rx="2" fill="#F5DAB2"/>
+          <path class="wrap" style="--i:6" pathLength="1" d="M27 -12 L-27 8" stroke="#1C1B2B" stroke-width="7" fill="none" clip-path="url(#sp-fist)"/>
         </g>
-        <!-- strap wraps around the forearm (drawn top to bottom, elbow to wrist) -->
-        <g clip-path="url(#sp-arm)" fill="none" stroke="url(#sp-front)" stroke-width="12" stroke-linecap="butt">
-          <path class="wrap lead" style="--i:-1" pathLength="1" d="M300 92 Q296 130 276 172"/>
-          <path class="wrap" style="--i:0" pathLength="1" d="M292 89 Q287 129 254 168"/>
-          <path class="wrap" style="--i:1" pathLength="1" d="M266 89 Q261 128 228 166"/>
-          <path class="wrap" style="--i:2" pathLength="1" d="M240 91 Q235 128 202 165"/>
-          <path class="wrap" style="--i:3" pathLength="1" d="M214 93 Q209 128 176 163"/>
-          <path class="wrap" style="--i:4" pathLength="1" d="M188 96 Q183 128 150 161"/>
-          <path class="wrap" style="--i:5" pathLength="1" d="M162 99 Q157 129 124 159"/>
-          <path class="wrap" style="--i:6" pathLength="1" d="M138 101 Q133 129 100 157"/>
-        </g>
-        <!-- strap across the hand -->
-        <g clip-path="url(#sp-fist)" fill="none" stroke="url(#sp-front)" stroke-width="10">
-          <path class="wrap" style="--i:7" pathLength="1" d="M104 98 Q98 134 84 172"/>
-          <path class="wrap" style="--i:8" pathLength="1" d="M84 96 Q78 130 64 172"/>
-        </g>
-        <!-- cylindrical light and shadow over skin and straps -->
-        <g class="arm" pointer-events="none">
-          <path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z" fill="url(#sp-shade)"/>
-          <path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z" fill="url(#sp-shade)"/>
-        </g>
-        <!-- tefillin shel yad: titura base with ma'abarta, bayit, and the yud knot -->
-        <g class="box"><g transform="translate(0 7)">
-          <path d="M296 96 L346 94 L348 101 L298 103 Z" fill="#1A1928"/>
-          <path d="M304 64 L336 63 L336 96 L304 97 Z" fill="url(#sp-front)"/>
-          <path d="M304 64 L313 55 L345 54 L336 63 Z" fill="#45445E"/>
-          <path d="M336 63 L345 54 L345 87 L336 96 Z" fill="#0C0B14"/>
-          <path d="M306 66 L334 65" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/>
-          <path d="M313 55 L345 54" stroke="#fff" stroke-opacity=".25" stroke-width="1"/>
-          <path d="M292 99 C286 97 284 104 290 106 C295 107 297 101 292 99 Z" fill="#14131F"/>
+        <!-- tefillin shel yad on the upper arm -->
+        <g class="box"><g>
+          <rect x="198" y="163" width="46" height="8" rx="2" fill="#0D0D17"/>
+          <rect x="198" y="163" width="46" height="3" rx="1.5" fill="#3E3D56"/>
+          <path d="M207 139 L215 132 L241 132 L233 139 Z" fill="#3E3D56"/>
+          <path d="M233 139 L241 132 L241 157 L233 164 Z" fill="#0D0D17"/>
+          <rect x="207" y="139" width="26" height="25" rx="1.5" fill="#1C1B2B"/>
+          <rect x="209" y="141" width="4" height="21" rx="2" fill="#fff" opacity=".08"/>
         </g></g>
       </g>
-      <text class="shin" x="200" y="322" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="38" fill="#B8893B">ש</text>
+      <text class="shin" x="150" y="294" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="30" fill="#B8893B">ש</text>
     </svg>
     <button type="button" class="splash-skip" id="splash-skip">דילוג</button>
   </div>
