@@ -1,6 +1,6 @@
 # PROJECT_NOTES — דף נחיתה למושיק קליין
 
-**שלב נוכחי:** 7 (חיבור Netlify בחשבון של מושיק)
+**שלב נוכחי:** 8 (טופס והתראות) — האתר בנוי ב-Netlify בחשבון של מושיק, ענף main, כרגע פרטי
 **עדכון אחרון:** 2026-10-25
 
 ## עובדות מאושרות (מהלקוח)
@@ -49,7 +49,7 @@
 ## טכנולוגיה ואחסון
 - HTML/CSS/JS סטטי, בלי framework.
 - Claude Code → GitHub ‏(dvirklein88-ops/MoshikKlein) → Netlify.
-- דומיין: בינתיים כתובת netlify.app חינמית (אושר). דומיין ייבחר בהמשך.
+- דומיין: בינתיים https://moshik-klein.netlify.app (אושר). דומיין ייבחר בהמשך; אז לעדכן og:url, og:image ו-canonical.
 - **GitHub:** הריפו dvirklein88-ops/MoshikKlein הוא הריפו של מושיק (אושר). ענף `main` נוצר ב-2026-10-25 מענף ברירת המחדל הקודם (claude/clever-thompson-7dceq0); העבודה ממוזגת אליו ב-PR.
 - **Netlify:** בחשבון של מושיק (לא של דביר). החיבור ייעשה על ידי בעל החשבון.
 - **התראות טופס:** ל-moshikklein@gmail.com (אושר).
