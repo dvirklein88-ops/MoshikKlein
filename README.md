@@ -1,7 +1,9 @@
-# MoshikKlein
+# מושיק קליין
 
-Landing page for Moshik Klein.
+מלמד קריאה בתורה לבר מצווה.
 
-## Status
+מאגר זה מיועד לדף הנחיתה של מושיק קליין.
 
-In planning — content and design to be added.
+## סטטוס
+
+בתכנון — התוכן והעיצוב יתווספו בהמשך.
