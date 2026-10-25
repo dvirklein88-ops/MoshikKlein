@@ -63,6 +63,8 @@
   var form = document.getElementById('contact-form');
   if (!form) return;
   var status = document.getElementById('form-status');
+  var waLink = document.querySelector('a[href^="https://wa.me/"]');
+  var WA_URL = waLink ? waLink.href : 'https://wa.me/972544447068';
   var nameEl = document.getElementById('f-name');
   var phoneEl = document.getElementById('f-phone');
 
@@ -109,8 +111,11 @@
       status.className = 'form-status ok';
       status.textContent = 'תודה! הפרטים התקבלו, ומושיק יחזור אליכם בהקדם.';
     }).catch(function () {
-      // Fallback: regular form post (Netlify handles it)
-      form.submit();
+      // Never send the parent to an error page: keep them here with direct contact options.
+      status.className = 'form-status bad';
+      status.innerHTML = 'משהו השתבש בשליחה. אפשר לכתוב למושיק ישירות ' +
+        '<a href="' + WA_URL + '" target="_blank" rel="noopener">בוואטסאפ</a> או להתקשר ' +
+        '<a href="tel:0544447068">054-4447068</a>.';
     }).then(function () { btn.disabled = false; });
   });
 })();
