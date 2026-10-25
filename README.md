@@ -34,7 +34,7 @@ python3 -m http.server 8000 --directory public
 
 ## לפני עלייה לאוויר
 
-- `og:image` ב-`public/index.html` הוא נתיב יחסי. אחרי שיש דומיין צריך להחליף לכתובת מלאה (`https://הדומיין/assets/img/moshik-hero-800.jpg`).
+- הכתובת הנוכחית היא https://moshik-klein.netlify.app. אם מחברים דומיין, צריך לעדכן ב-`public/index.html` את `og:url`, את `og:image` ואת `canonical`.
 - לבדוק קבלה של טופס ומייל התראה ב-Netlify (Forms → Notifications) לפני שמכריזים שהוא עובד.
 
 ## פריסה (Netlify מ-GitHub)
