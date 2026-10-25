@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סקיצה 2 · תיקון קוראים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;900&family=Noto+Rashi+Hebrew:wght@400;500&family=Noto+Sans+Hebrew:wght@400;500;600&family=Noto+Serif+Hebrew:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cloth:#17324D; --cloth-2:#0F2438; --stamp:#C9A44C; --page:#FBFAF6; --ink:#141414; --ink-2:#55524C;
+  --rule:rgba(20,20,20,.14); --mark:#9B2C2C; --wa:#1F7A4D;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--cloth);color:var(--ink);font:400 17px/1.6 "Noto Sans Hebrew",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--stamp);color:var(--cloth-2)}
+a{color:inherit;text-decoration:none}
+
+header{display:flex;align-items:center;justify-content:space-between;max-width:1360px;margin:0 auto;padding:18px 28px;color:#E9E4D6}
+.brand{font:900 24px/1 "Frank Ruhl Libre",serif;color:var(--stamp);letter-spacing:.01em}
+nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:15px;color:rgba(233,228,214,.75)}
+nav a:hover{color:#fff}
+.tel{font-size:15px;border-bottom:1px solid var(--stamp);padding-bottom:2px}
+
+/* the open book */
+.book{max-width:1360px;margin:0 auto;padding:0 28px 40px}
+.spread{position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--page);border-radius:6px 6px 4px 4px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.55),0 2px 0 #E8E4D8,0 4px 0 #DCD7C9;min-height:min(80vh,760px)}
+.spread::after{content:"";position:absolute;inset-block:0;inset-inline-start:50%;width:56px;transform:translateX(50%);
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.07) 45%,rgba(0,0,0,.12) 50%,rgba(0,0,0,.07) 55%,transparent);pointer-events:none}
+.pg{position:relative;padding:clamp(28px,4.4vw,64px)}
+.pg-head{display:flex;justify-content:space-between;font:500 13px/1 "Noto Rashi Hebrew",serif;color:var(--ink-2);border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:clamp(28px,4vw,52px)}
+
+/* right page: the vocalised column — the lesson */
+h1{font:500 clamp(40px,5vw,74px)/1.18 "Noto Serif Hebrew",serif;letter-spacing:-.01em;text-wrap:balance}
+h1 .word{position:relative;display:inline-block}
+h1 .word::after{content:"";position:absolute;inset-inline:0;bottom:.02em;height:3px;background:var(--mark);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+h1 .word.at::after{transform:scaleX(1)}
+.lead{margin-top:28px;max-width:44ch;font-size:19px;color:#2C2A26}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:4px;font-weight:600;font-size:16px;transition:transform .4s var(--ease),background-color .25s}
+.btn:active{transform:scale(.97)}
+.btn-ink{background:var(--cloth);color:#fff}.btn-ink:hover{background:var(--cloth-2)}
+.btn-line{box-shadow:inset 0 0 0 1px var(--ink)}.btn-line:hover{background:rgba(20,20,20,.05)}
+.gloss{position:absolute;inset-inline-end:-6px;top:38%;width:120px;font:400 13px/1.5 "Noto Rashi Hebrew",serif;color:var(--ink-2);transform:translateX(-100%)}
+
+/* left page: the plain column — what the boy will read on the day */
+.pg-left{display:grid;grid-template-rows:auto 1fr auto}
+.stam{font:900 clamp(40px,5vw,74px)/1.18 "Frank Ruhl Libre",serif;color:var(--ink);text-wrap:balance}
+.portrait{align-self:end;justify-self:center;width:min(78%,380px);margin-top:12px}
+.portrait img{display:block;width:100%;height:auto;filter:grayscale(.15) contrast(1.02)}
+.foot{display:flex;gap:18px;flex-wrap:wrap;font:400 14px/1.4 "Noto Rashi Hebrew",serif;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px}
+
+[data-in]{opacity:0;transform:translateY(10px);animation:in .9s var(--ease) forwards}
+[data-in="2"]{animation-delay:.15s}[data-in="3"]{animation-delay:.3s}
+@keyframes in{to{opacity:1;transform:none}}
+
+@media (max-width:900px){
+  nav{display:none}
+  .spread{grid-template-columns:1fr}
+  .spread::after{display:none}
+  .pg-left{border-top:1px solid var(--rule)}
+  .gloss{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-in]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#">מושיק קליין</a>
+  <nav aria-label="ניווט ראשי"><ul>
+    <li><a href="#">הגישה</a></li><li><a href="#">מה לומדים</a></li><li><a href="#">מסלולים</a></li><li><a href="#">על מושיק</a></li><li><a href="#">שאלות נפוצות</a></li>
+  </ul></nav>
+  <a class="tel" href="tel:0544447068" dir="ltr">054-4447068</a>
+</header>
+
+<main class="book">
+  <div class="spread">
+    <section class="pg pg-right">
+      <div class="pg-head"><span>הכנה לבר מצווה</span><span>קריאה · הפטרה · תפילין</span></div>
+      <h1 id="h1" data-in>מְכִינִים לְבַר מִצְוָה בְּבִטָּחוֹן, בְּשִׂמְחָה וּבְגֹבַהּ הָעֵינַיִם</h1>
+      <p class="lead" data-in="2">יום הבר מצווה יהיה רגע של גאווה, לא של לחץ. קריאה בתורה, הפטרה והכנה להנחת תפילין, בליווי של מושיק קליין.</p>
+      <div class="ctas" data-in="3">
+        <a class="btn btn-ink" href="https://wa.me/972544447068" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+        <a class="btn btn-line" href="tel:0544447068">התקשרו 054-4447068</a>
+      </div>
+    </section>
+    <section class="pg pg-left" aria-label="מושיק קליין">
+      <div class="pg-head"><span>נוסח אשכנזי</span><span>מעל 20 שנות ניסיון</span></div>
+      <p class="stam" aria-hidden="true" data-in>מכינים לבר מצוה בבטחון בשמחה ובגבה העינים</p>
+      <div class="portrait" data-in="2"><img src="../public/assets/img/moshik-cutout-800.webp" width="800" height="957" alt="מושיק קליין"></div>
+      <div class="foot"><span>פרונטלי במודיעין־מכבים־רעות</span><span>בזום מכל מקום</span><span>גם למשפחות חילוניות</span></div>
+    </section>
+  </div>
+</main>
+
+<script>
+/* the reading pointer: walks the vocalised headline word by word, then rests */
+const h=document.getElementById('h1');
+h.innerHTML=h.textContent.split(' ').map(w=>`<span class="word">${w}</span>`).join(' ');
+const ws=[...h.querySelectorAll('.word')];
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  let i=0;setTimeout(function step(){ws.forEach(w=>w.classList.remove('at'));if(i<ws.length){ws[i++].classList.add('at');setTimeout(step,420);}else{ws[ws.length-1].classList.add('at');}},1100);
+}
+</script>
+</body>
+</html>

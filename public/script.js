@@ -2,68 +2,98 @@
 (function () {
   'use strict';
 
-  var root = document.documentElement;
-
-  /* ---------- Splash ---------- */
-  var splash = document.getElementById('splash');
-  function removeSplash() {
-    if (!splash) return;
-    splash.classList.add('out');
-    setTimeout(function () {
-      if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
-      splash = null;
-      root.classList.remove('splash-on');
-    }, 320);
-  }
-  if (splash) {
-    if (root.classList.contains('splash-on')) {
-      try { sessionStorage.setItem('splashSeen', '1'); } catch (e) {}
-      var skip = document.getElementById('splash-skip');
-      if (skip) skip.addEventListener('click', function (e) { e.stopPropagation(); removeSplash(); });
-      splash.addEventListener('click', removeSplash);
-      setTimeout(removeSplash, 2000);
-    } else {
-      splash.parentNode.removeChild(splash);
-      splash = null;
-    }
-  }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Footer year ---------- */
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  /* ---------- Reveal on scroll (classes only added by JS) ---------- */
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- Mobile menu ---------- */
+  var header = document.querySelector('.site-header');
+  var menuBtn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('main-nav');
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+  }
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open')); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && header.classList.contains('menu-open')) { setMenu(false); menuBtn.focus(); }
+    });
+    document.addEventListener('click', function (e) {
+      if (header.classList.contains('menu-open') && !header.contains(e.target)) setMenu(false);
+    });
+  }
+
+  /* ---------- Approach quote: words light up with scroll ---------- */
+  var quote = document.getElementById('quote');
+  var words = [];
+  if (quote && !reduce) {
+    quote.innerHTML = quote.textContent.trim().split(/\s+/).map(function (w) {
+      return '<span class="w">' + w + '</span>';
+    }).join(' ');
+    words = Array.prototype.slice.call(quote.querySelectorAll('.w'));
+  }
+
+  /* ---------- Mobile contact bar: step aside once the contact section is on screen ---------- */
+  var bar = document.querySelector('.mobile-bar');
+  var contact = document.getElementById('contact');
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      if (words.length) {
+        var r = quote.getBoundingClientRect();
+        var p = (vh * 0.85 - r.top) / (r.height + vh * 0.3);
+        var n = Math.round(Math.min(1, Math.max(0, p)) * words.length);
+        for (var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+      }
+      if (bar && contact) {
+        var c = contact.getBoundingClientRect();
+        bar.classList.toggle('hide', c.top < vh * 0.6 && c.bottom > 0);
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- Reveal on scroll (hidden state only exists when JS runs) ---------- */
+  var reveals = document.querySelectorAll('.reveal');
   if (!reduce && 'IntersectionObserver' in window) {
-    var unrollTargets = document.querySelectorAll('#approach .narrow');
-    for (var u = 0; u < unrollTargets.length; u++) {
-      unrollTargets[u].classList.remove('reveal');
-      unrollTargets[u].classList.add('unroll');
-    }
-    // Observe the parent for clip-path elements (a fully clipped element can't intersect).
-    var targets = [];
-    var els = document.querySelectorAll('.reveal, .unroll');
-    for (var i = 0; i < els.length; i++) {
-      var host = els[i].classList.contains('unroll') ? els[i].parentElement : els[i];
-      host._reveal = els[i];
-      targets.push(host);
-    }
+    // Stagger only what arrives together, so nothing waits on siblings still off screen.
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target._reveal.classList.add('in'); io.unobserve(en.target); }
+      entries.filter(function (en) { return en.isIntersecting; }).forEach(function (en, k) {
+        en.target.style.setProperty('--i', k);
+        en.target.classList.add('in');
+        io.unobserve(en.target);
       });
-    }, { threshold: 0.1 });
-    targets.forEach(function (t) { io.observe(t); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
   } else {
-    var all = document.querySelectorAll('.reveal');
-    for (var j = 0; j < all.length; j++) all[j].classList.add('in');
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Drifting light runs only while its panel is on screen ---------- */
+  if ('IntersectionObserver' in window) {
+    var lio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.querySelector('.light').classList.toggle('paused', !en.isIntersecting); });
+    });
+    document.querySelectorAll('.light').forEach(function (el) { lio.observe(el.parentElement); });
   }
 
   /* ---------- Contact form ---------- */
   var form = document.getElementById('contact-form');
   if (!form) return;
   var status = document.getElementById('form-status');
-  var waLink = document.querySelector('a[href^="https://wa.me/"]');
+  var waLink = document.querySelector('a[data-wa]');
   var WA_URL = waLink ? waLink.href : 'https://wa.me/972544447068';
   var nameEl = document.getElementById('f-name');
   var phoneEl = document.getElementById('f-phone');
@@ -100,7 +130,9 @@
 
     var body = new URLSearchParams(new FormData(form)).toString();
     var btn = form.querySelector('button[type="submit"]');
+    var label = btn.querySelector('.btn-label');
     btn.disabled = true;
+    label.textContent = 'שולחים…';
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -109,13 +141,13 @@
       if (!res.ok) throw new Error('bad status ' + res.status);
       form.reset();
       status.className = 'form-status ok';
-      status.textContent = 'תודה! הפרטים התקבלו, ומושיק יחזור אליכם בהקדם.';
+      status.textContent = 'תודה! הפרטים התקבלו, ואחזור אליכם בהקדם.';
     }).catch(function () {
       // Never send the parent to an error page: keep them here with direct contact options.
       status.className = 'form-status bad';
-      status.innerHTML = 'משהו השתבש בשליחה. אפשר לכתוב למושיק ישירות ' +
+      status.innerHTML = 'משהו השתבש בשליחה. אפשר לכתוב לי ישירות ' +
         '<a href="' + WA_URL + '" target="_blank" rel="noopener">בוואטסאפ</a> או להתקשר ' +
         '<a href="tel:0544447068">054-4447068</a>.';
-    }).then(function () { btn.disabled = false; });
+    }).then(function () { btn.disabled = false; label.textContent = 'שלחו פרטים'; });
   });
 })();
