@@ -35,7 +35,7 @@
   /* ---------- Reveal on scroll (classes only added by JS) ---------- */
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var unrollTargets = document.querySelectorAll('#approach .narrow, .parchment-sheet');
+    var unrollTargets = document.querySelectorAll('#approach .narrow');
     for (var u = 0; u < unrollTargets.length; u++) {
       unrollTargets[u].classList.remove('reveal');
       unrollTargets[u].classList.add('unroll');
