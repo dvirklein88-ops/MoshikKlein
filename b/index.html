@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>מושיק קליין | הכנה לבר מצווה – קריאה בתורה, הפטרה ותפילין | מודיעין</title>
+<meta name="description" content="מושיק קליין – הכנה לבר מצווה: קריאה בתורה בנוסח אשכנזי, הפטרה והכנה להנחת תפילין. מעל 20 שנות ניסיון. פרונטלי במודיעין־מכבים־רעות ובזום מכל מקום.">
+<meta name="theme-color" content="#14142A">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:title" content="מושיק קליין | הכנה לבר מצווה">
+<meta property="og:description" content="קריאה בתורה, הפטרה והכנה להנחת תפילין – ליווי חם, בלי לחץ ובלי דרשות. במודיעין והסביבה ובזום.">
+<!-- TODO: after the domain is chosen, replace with an absolute URL, e.g. https://example.co.il/assets/img/moshik-hero-800.jpg -->
+<meta property="og:image" content="../assets/img/moshik-hero-800.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<script>
+/* Decide about the splash before first paint. Without JS the splash stays hidden. */
+(function () {
+  try {
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var seen = false;
+    try { seen = sessionStorage.getItem('splashSeen') === '1'; } catch (e) {}
+    if (!reduce && !seen) { document.documentElement.classList.add('splash-on'); }
+    document.documentElement.classList.add('js');
+  } catch (e) {}
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "מושיק קליין – הכנה לבר מצווה",
+  "description": "הכנה לבר מצווה: קריאה בתורה (נוסח אשכנזי), הפטרה והכנה להנחת תפילין.",
+  "telephone": "+972544447068",
+  "email": "moshikklein@gmail.com",
+  "areaServed": "מודיעין־מכבים־רעות",
+  "founder": { "@type": "Person", "name": "מושיק קליין" },
+  "availableLanguage": "he"
+}
+</script>
+</head>
+<body>
+
+<!-- Hidden SVG sprite: gold rule with a small crown (keter) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="crown" viewBox="0 0 48 40">
+    <path d="M6 32 L8 13 L17 22 L24 8 L31 22 L40 13 L42 32 Z M6 37 H42" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="8" cy="10" r="2" fill="currentColor"/><circle cx="24" cy="5" r="2" fill="currentColor"/><circle cx="40" cy="10" r="2" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<!-- 1. Splash (shown only when JS adds html.splash-on) -->
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="splash-inner">
+    <svg class="splash-svg" viewBox="0 0 260 160" role="presentation" focusable="false">
+      <!-- arm: fist on the left, upper arm on the right -->
+      <g class="arm">
+        <path d="M40 54 L150 48 C185 43 215 38 252 36 L252 104 C215 103 185 99 150 94 L40 86 Z" fill="#E6C29C" stroke="#1C1B2B" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="10" y="50" width="38" height="42" rx="14" fill="#E6C29C" stroke="#1C1B2B" stroke-width="2.5"/>
+      </g>
+      <!-- tefillin shel yad: base (titura) + box (bayit) on the bicep -->
+      <g class="box">
+        <rect x="190" y="35" width="40" height="7" rx="1.5" fill="#1C1B2B"/>
+        <rect x="197" y="12" width="26" height="24" rx="2" fill="#1C1B2B"/>
+        <rect x="200" y="15" width="6" height="18" rx="1" fill="#3A3950"/>
+      </g>
+      <!-- strap: from the box along the arm, seven wraps, ending at the hand -->
+      <path class="strap" pathLength="1" d="M201 42 C182 46 160 47 146 48.6 M140 48.5 Q129.0 70.5 128 92.4 M127 49.3 Q116.0 70.4 115 91.5 M114 50.0 Q103.0 70.2 102 90.5 M101 50.7 Q90.0 70.1 89 89.6 M88 51.4 Q77.0 70.0 76 88.6 M75 52.1 Q64.0 69.9 63 87.7 M62 52.8 Q51.0 69.8 50 86.7 M50 86.7 C40 90 30 92 24 84 C20 78 22 66 30 62" fill="none" stroke="#1C1B2B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="shin" x="130" y="150" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="40" fill="#B8893B">ש</text>
+    </svg>
+    <button type="button" class="splash-skip" id="splash-skip">דילוג</button>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">דלגו לתוכן הראשי</a>
+
+<!-- 2. Header -->
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="#top" aria-label="מושיק קליין – לראש הדף">
+      <span class="brand-mark" aria-hidden="true">ש</span>
+      <span class="brand-name">מושיק קליין</span>
+    </a>
+    <nav class="main-nav" aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#approach">הגישה</a></li>
+        <li><a href="#learn">מה לומדים</a></li>
+        <li><a href="#tracks">מסלולים</a></li>
+        <li><a href="#about">על מושיק</a></li>
+        <li><a href="#faq">שאלות נפוצות</a></li>
+        <li><a href="#contact">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-call btn-sm" href="tel:0544447068">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+      <span class="call-txt">054-4447068</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- 3. Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <span class="bgletter bl1" aria-hidden="true">א</span>
+    <span class="bgletter bl2" aria-hidden="true">ש</span>
+    <span class="bgletter bl3" aria-hidden="true">ת֔</span>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <svg class="crown-ico reveal" viewBox="0 0 48 40" aria-hidden="true" focusable="false"><use href="#crown"/></svg>
+        <h1 id="hero-title">מכינים לבר מצווה — בביטחון, בשמחה ובגובה העיניים</h1>
+        <p class="lead reveal">יום הבר מצווה יהיה רגע של גאווה, לא של לחץ. קריאה בתורה, הפטרה והכנה להנחת תפילין, בליווי של מושיק קליין.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-wa" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-ico"/></svg>
+            <span>דברו איתי בוואטסאפ</span>
+          </a>
+          <a class="btn btn-secondary" href="tel:0544447068">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+            <span>התקשרו 054-4447068</span>
+          </a>
+        </div>
+        <ul class="chips reveal" aria-label="בקצרה">
+          <li>20+ שנות ניסיון</li>
+          <li>נוסח אשכנזי</li>
+          <li>מודיעין והסביבה + זום</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="arch" aria-hidden="true"></div>
+        <img src="../assets/img/moshik-cutout-800.webp" srcset="../assets/img/moshik-cutout-480.webp 480w, ../assets/img/moshik-cutout-800.webp 800w" sizes="(min-width: 900px) 460px, 80vw" width="800" height="957" alt="מושיק קליין" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Approach -->
+  <section class="section s-dark" id="approach" aria-labelledby="approach-title">
+    <span class="bgletter bl4" aria-hidden="true">֕</span>
+    <div class="container narrow">
+      <h2 id="approach-title" class="reveal">הגישה</h2>
+      <p class="big-quote reveal">ליווי חם שמכבד את הבית שלכם, את הקצב של הילד ואת המסורת של המשפחה.</p>
+      <p class="reveal">מחברים לעולם התורה בטבעיות, בלי לחץ ובלי דרשות.</p>
+      <p class="reveal">מושיק מלמד משפחות מכל הרקעים, כולל משפחות חילוניות, ומתאים את הדרך לבית ולילד – כדי שהבר מצווה יגיע בשקט, בביטחון ובשמחה.</p>
+    </div>
+  </section>
+
+  <!-- 5. What you learn -->
+  <section class="section s-dark2" id="learn" aria-labelledby="learn-title">
+    <div class="container">
+      <h2 id="learn-title" class="center reveal">מה לומדים</h2>
+      <div class="cards three">
+        <article class="card reveal">
+          <div class="card-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="8" height="32" rx="4"/><rect x="34" y="8" width="8" height="32" rx="4"/><path d="M14 12h20v24H14z"/><path d="M18 19h12M18 24h12M18 29h8"/></svg></div>
+          <h3>קריאה בתורה</h3>
+          <p>לימוד הקריאה בתורה בנוסח אשכנזי, צעד אחר צעד ובקצב של הילד.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10h28v28H10z"/><path d="M16 18h16M16 24h16M16 30h10"/><circle cx="36" cy="36" r="6"/></svg></div>
+          <h3>הפטרה</h3>
+          <p>לימוד ההפטרה, בקצב רגוע ובליווי צמוד, עד שהילד מרגיש בטוח.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-ico" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="8" width="20" height="18" rx="2"/><rect x="18" y="12" width="12" height="10" rx="1"/><path d="M24 26c0 8-8 8-8 14M24 26c0 8 8 8 8 14"/></svg></div>
+          <h3>הכנה להנחת תפילין</h3>
+          <p>הכנה רגועה להנחת תפילין, כדי שהילד יגיע לרגע הזה מוכן ובטוח.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Tracks -->
+  <section class="section s-light" id="tracks" aria-labelledby="tracks-title">
+    <div class="container">
+      <h2 id="tracks-title" class="center reveal">המסלולים</h2>
+      <div class="cards two">
+        <article class="card track reveal">
+          <h3>הפרשה כולה + הפטרה</h3>
+          <p>לימוד הפרשה כולה והפטרה.</p>
+          <p class="note">מומלץ להתחיל כחצי שנה מראש.</p>
+        </article>
+        <article class="card track reveal">
+          <h3>מפטיר + הפטרה</h3>
+          <p>לימוד המפטיר (חלק מהפרשה) והפטרה.</p>
+          <p class="note">מומלץ להתחיל כשלושה חודשים מראש.</p>
+        </article>
+      </div>
+      <div class="cta-center reveal">
+        <a class="btn btn-wa" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-ico"/></svg>
+          <span>הכי טוב שנדבר על זה</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. How it works -->
+  <section class="section s-dark" id="how" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title" class="center reveal">איך זה עובד</h2>
+      <ol class="steps">
+        <li class="reveal"><span class="step-num" aria-hidden="true">1</span><h3>שיחה קצרה</h3><p>מספרים על הילד, על המשפחה ועל התאריך.</p></li>
+        <li class="reveal"><span class="step-num" aria-hidden="true">2</span><h3>נפגשים ומכירים</h3><p>פוגשים את הילד ומכירים את הקצב שלו.</p></li>
+        <li class="reveal"><span class="step-num" aria-hidden="true">3</span><h3>תוכנית לימוד מותאמת</h3><p>תוכנית שמותאמת לתאריך הבר מצווה.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 8. About -->
+  <section class="section s-dark2" id="about" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2 id="about-title">על מושיק</h2>
+        <p>מושיק קליין מלמד נערים לקראת בר מצווה: קריאה בתורה, הפטרה והכנה להנחת תפילין.</p>
+        <p>מעל 20 שנות ניסיון ועשרות תלמידים מרוצים. הלימוד בנוסח אשכנזי, בליווי חם, בלי לחץ ובלי דרשות – גם למשפחות חילוניות.</p>
+        <a class="btn btn-primary" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener"><span>הכי טוב שנדבר על זה</span></a>
+      </div>
+      <!-- PLACEHOLDER: תמונה "מושיק לומד עם נער" – להחליף ב-<img> (יחס 4:3) -->
+      <div class="ph ph-photo reveal" role="img" aria-label="מקום שמור לתמונה של מושיק לומד עם נער">
+        <span>כאן תבוא תמונה: מושיק לומד עם נער</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Testimonials -->
+  <section class="section s-dark" id="parents" aria-labelledby="parents-title">
+    <span class="bgletter bl5" aria-hidden="true">֖</span>
+    <div class="container">
+      <h2 id="parents-title" class="center reveal">מה ההורים אומרים</h2>
+      <!-- PLACEHOLDER: 3–6 צילומי מסך של וואטסאפ מהורים (יחס 9:16). יש להסתיר שמות, מספרים ותמונות פרופיל ולקבל הסכמה. להחליף כל .ph-shot ב-<img> -->
+      <ul class="shots">
+        <li class="ph ph-shot"><span>כאן תבוא תמונה: צילום מסך וואטסאפ מהורה 1</span></li>
+        <li class="ph ph-shot"><span>כאן תבוא תמונה: צילום מסך וואטסאפ מהורה 2</span></li>
+        <li class="ph ph-shot"><span>כאן תבוא תמונה: צילום מסך וואטסאפ מהורה 3</span></li>
+        <li class="ph ph-shot"><span>כאן תבוא תמונה: צילום מסך וואטסאפ מהורה 4</span></li>
+      </ul>
+      <div class="cta-center">
+        <a class="btn btn-primary" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener"><span>הכי טוב שנדבר על זה</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Where -->
+  <section class="section s-dark2" id="where" aria-labelledby="where-title">
+    <div class="container">
+      <h2 id="where-title" class="center reveal">איפה לומדים</h2>
+      <div class="cards two">
+        <article class="card reveal">
+          <h3>פרונטלי במודיעין־מכבים־רעות</h3>
+          <p>שיעורים פנים אל פנים באזור מודיעין־מכבים־רעות.</p>
+        </article>
+        <article class="card reveal">
+          <h3>בזום, מכל מקום</h3>
+          <p>לא גרים בסביבה? לומדים בזום מכל מקום.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FAQ -->
+  <section class="section s-dark" id="faq" aria-labelledby="faq-title">
+    <div class="container narrow">
+      <h2 id="faq-title" class="center reveal">שאלות נפוצות</h2>
+      <div class="faq">
+        <details>
+          <summary>מתי כדאי להתחיל?</summary>
+          <p>במסלול הפרשה כולה + הפטרה מומלץ להתחיל כחצי שנה מראש. במסלול מפטיר + הפטרה מומלץ להתחיל כשלושה חודשים מראש.</p>
+        </details>
+        <details>
+          <summary>אנחנו משפחה חילונית – זה מתאים לנו?</summary>
+          <p>בהחלט. מושיק מלמד גם משפחות חילוניות, בטבעיות, בלי לחץ ובלי דרשות, ובכבוד לבית ולקצב של הילד.</p>
+        </details>
+        <details>
+          <summary>אפשר ללמוד בזום?</summary>
+          <p>כן. אפשר ללמוד בזום מכל מקום, וגם פרונטלי במודיעין־מכבים־רעות.</p>
+        </details>
+        <details>
+          <summary>באיזה נוסח?</summary>
+          <p>בנוסח אשכנזי.</p>
+        </details>
+        <details>
+          <summary>מה בדיוק לומדים?</summary>
+          <p>קריאה בתורה, הפטרה, והכנה להנחת תפילין.</p>
+        </details>
+      </div>
+      <div class="cta-center">
+        <a class="btn btn-primary" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener"><span>הכי טוב שנדבר על זה</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Contact -->
+  <section class="section s-light" id="contact" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div class="contact-direct reveal">
+        <h2 id="contact-title">הכי טוב שנדבר על זה</h2>
+        <p>השאירו פרטים ונחזור אליכם, או פשוט פנו ישירות:</p>
+        <a class="btn btn-wa btn-lg" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener"><span>וואטסאפ</span></a>
+        <a class="btn btn-secondary btn-lg" href="tel:0544447068"><span>054-4447068</span></a>
+        <a class="btn btn-secondary btn-lg" href="mailto:moshikklein@gmail.com"><span>moshikklein@gmail.com</span></a>
+      </div>
+
+      <form class="form reveal" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hp" aria-hidden="true"><label>אל תמלאו שדה זה: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field">
+          <label for="f-name">שם ההורה <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="f-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="e-name">
+          <p class="err" id="e-name" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-phone">טלפון <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="f-phone" name="phone" inputmode="tel" autocomplete="tel" dir="ltr" required aria-required="true" pattern="[0-9+\-\s()]{9,16}" aria-describedby="e-phone">
+          <p class="err" id="e-phone" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-date">תאריך / פרשת הבר מצווה <span class="opt">(לא חובה)</span></label>
+          <input type="text" id="f-date" name="date-or-parasha">
+        </div>
+        <div class="field">
+          <label for="f-msg">הודעה <span class="opt">(לא חובה)</span></label>
+          <textarea id="f-msg" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg"><span>שלחו פרטים</span></button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- 13. Footer -->
+<footer class="site-footer">
+  <div class="gold-rule" aria-hidden="true"></div>
+  <div class="container footer-row">
+    <div>
+      <p class="f-name">מושיק קליין</p>
+      <p>הכנה לבר מצווה</p>
+    </div>
+    <div>
+      <p><a href="tel:0544447068">054-4447068</a></p>
+      <p><a href="mailto:moshikklein@gmail.com">moshikklein@gmail.com</a></p>
+    </div>
+    <p class="copy">© <span id="year">2026</span> מושיק קליין</p>
+  </div>
+</footer>
+
+<!-- Floating contact -->
+<a class="wa-float" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener" aria-label="וואטסאפ – שלחו הודעה למושיק">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa-ico"/></svg>
+</a>
+<div class="mobile-bar">
+  <a class="btn btn-wa" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener"><span>וואטסאפ</span></a>
+  <a class="btn btn-primary" href="tel:0544447068"><span>התקשרו</span></a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="wa-ico" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm5.200 14.200c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.600-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900.9-2.200c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.1.5.1.6-.1l.9-1.100c.2-.3.4-.2.6-.1l1.900.9c.3.1.5.2.5.3.1.2.1.7-.1 1.300z" fill="currentColor"/></symbol>
+</svg>
+
+<script src="script.js" defer></script>
+</body>
+</html>
