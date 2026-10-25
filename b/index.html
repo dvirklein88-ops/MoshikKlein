@@ -63,42 +63,84 @@
 <!-- 1. Splash (shown only when JS adds html.splash-on) -->
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-inner">
-    <svg class="splash-svg" viewBox="0 -34 300 200" role="presentation" focusable="false">
+    <svg class="splash-svg" viewBox="0 0 400 330" role="presentation" focusable="false">
       <defs>
-        <clipPath id="sp-arm"><path d="M80 54 L258 40 Q288 38 288 70 Q288 102 258 100 L80 92 Z"/></clipPath>
-        <clipPath id="sp-hand"><path d="M34 60 Q36 48 54 48 L84 52 Q92 72 84 94 L52 98 Q30 98 28 82 Q26 70 34 60 Z"/></clipPath>
+        <radialGradient id="sp-bg" cx="50%" cy="42%" r="60%">
+          <stop offset="0" stop-color="#FFFDF7"/><stop offset=".7" stop-color="#F6ECD6"/><stop offset="1" stop-color="#EBDBB9"/>
+        </radialGradient>
+        <linearGradient id="sp-skin" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F7DDB5"/><stop offset=".45" stop-color="#EDC897"/><stop offset="1" stop-color="#CF9F6C"/>
+        </linearGradient>
+        <linearGradient id="sp-shade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".18" stop-color="#fff" stop-opacity=".28"/>
+          <stop offset=".34" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".7" stop-color="#5a3412" stop-opacity="0"/>
+          <stop offset="1" stop-color="#5a3412" stop-opacity=".32"/>
+        </linearGradient>
+        <linearGradient id="sp-front" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#2E2D42"/><stop offset="1" stop-color="#14131F"/>
+        </linearGradient>
+        <radialGradient id="sp-ground" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#5a3412" stop-opacity=".22"/><stop offset="1" stop-color="#5a3412" stop-opacity="0"/>
+        </radialGradient>
+        <clipPath id="sp-arm"><path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z"/></clipPath>
+        <clipPath id="sp-fist"><path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z"/></clipPath>
       </defs>
-      <g transform="rotate(-10 150 70)">
-        <!-- forearm (elbow on the right) and fist, flat style -->
-        <g class="arm">
-          <path d="M80 54 L258 40 Q288 38 288 70 Q288 102 258 100 L80 92 Z" fill="#EFD3A2"/>
-          <path d="M80 80 L258 86 Q284 86 287 74 Q288 102 258 100 L80 92 Z" fill="#E2BE85"/>
-          <path d="M34 60 Q36 48 54 48 L84 52 Q92 72 84 94 L52 98 Q30 98 28 82 Q26 70 34 60 Z" fill="#EFD3A2"/>
-          <path d="M30 78 Q40 70 52 74" fill="none" stroke="#E2BE85" stroke-width="4" stroke-linecap="round"/>
-        </g>
-        <!-- strap wraps: appear one by one from the elbow toward the hand -->
-        <g clip-path="url(#sp-arm)" fill="#1C1B2B">
-          <polygon class="wrap" style="--i:0" points="240,34 254,34 224,108 210,108"/>
-          <polygon class="wrap" style="--i:1" points="216,34 230,34 200,108 186,108"/>
-          <polygon class="wrap" style="--i:2" points="192,34 206,34 176,108 162,108"/>
-          <polygon class="wrap" style="--i:3" points="168,34 182,34 152,108 138,108"/>
-          <polygon class="wrap" style="--i:4" points="144,34 158,34 128,108 114,108"/>
-          <polygon class="wrap" style="--i:5" points="120,34 134,34 104,108 90,108"/>
-          <polygon class="wrap" style="--i:6" points="98,34 112,34 82,108 68,108"/>
-        </g>
-        <g clip-path="url(#sp-hand)" fill="#1C1B2B">
-          <polygon class="wrap" style="--i:7" points="76,44 87,44 71,104 60,104"/>
-          <polygon class="wrap" style="--i:8" points="56,44 66,44 50,104 40,104"/>
-        </g>
-        <!-- tefillin shel yad: titura base + bayit (3D cube) near the elbow -->
-        <g class="box">
-          <rect x="230" y="36" width="40" height="7" rx="1.5" fill="#1C1B2B"/>
-          <polygon points="236,12 244,4 270,4 262,12" fill="#3A3950"/>
-          <polygon points="262,12 270,4 270,30 262,38" fill="#0E0E1A"/>
-          <rect x="236" y="12" width="26" height="26" rx="1.5" fill="#1C1B2B"/>
-        </g>
+      <!-- backdrop: soft disc with a thin gold ring (matches the hero portrait) -->
+      <g class="disc">
+        <circle cx="200" cy="150" r="140" fill="url(#sp-bg)" stroke="#B8893B" stroke-width="2"/>
+        <circle cx="200" cy="150" r="152" fill="none" stroke="#B8893B" stroke-opacity=".4" stroke-width="1"/>
       </g>
-      <text class="shin" x="150" y="160" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="40" fill="#B8893B">ש</text>
+      <g transform="translate(200 150) scale(.78) translate(-207 -128) rotate(-18 207 128)">
+        <ellipse class="arm" cx="205" cy="182" rx="170" ry="14" fill="url(#sp-ground)"/>
+        <!-- forearm and fist -->
+        <g class="arm">
+          <path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z" fill="url(#sp-skin)"/>
+          <path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z" fill="url(#sp-skin)"/>
+          <!-- curled fingers (front) and thumb (top) -->
+          <g fill="url(#sp-skin)" stroke="#B9875A" stroke-width="1.4">
+            <rect x="40" y="114" width="48" height="13" rx="6.5"/>
+            <rect x="38" y="126" width="50" height="13" rx="6.5"/>
+            <rect x="40" y="138" width="48" height="13" rx="6.5"/>
+            <rect x="45" y="150" width="42" height="12" rx="6"/>
+          </g>
+          <path d="M116 112 C104 103 84 101 66 106 C60 108 60 116 66 117 C82 118 100 119 114 121 Z" fill="#EAC08F" stroke="#B9875A" stroke-width="1.4"/>
+          <path d="M70 108 C78 106 88 106 96 107" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <!-- strap wraps around the forearm (drawn top to bottom, elbow to wrist) -->
+        <g clip-path="url(#sp-arm)" fill="none" stroke="url(#sp-front)" stroke-width="12" stroke-linecap="butt">
+          <path class="wrap lead" style="--i:-1" pathLength="1" d="M300 92 Q296 130 276 172"/>
+          <path class="wrap" style="--i:0" pathLength="1" d="M292 89 Q287 129 254 168"/>
+          <path class="wrap" style="--i:1" pathLength="1" d="M266 89 Q261 128 228 166"/>
+          <path class="wrap" style="--i:2" pathLength="1" d="M240 91 Q235 128 202 165"/>
+          <path class="wrap" style="--i:3" pathLength="1" d="M214 93 Q209 128 176 163"/>
+          <path class="wrap" style="--i:4" pathLength="1" d="M188 96 Q183 128 150 161"/>
+          <path class="wrap" style="--i:5" pathLength="1" d="M162 99 Q157 129 124 159"/>
+          <path class="wrap" style="--i:6" pathLength="1" d="M138 101 Q133 129 100 157"/>
+        </g>
+        <!-- strap across the hand -->
+        <g clip-path="url(#sp-fist)" fill="none" stroke="url(#sp-front)" stroke-width="10">
+          <path class="wrap" style="--i:7" pathLength="1" d="M104 98 Q98 134 84 172"/>
+          <path class="wrap" style="--i:8" pathLength="1" d="M84 96 Q78 130 64 172"/>
+        </g>
+        <!-- cylindrical light and shadow over skin and straps -->
+        <g class="arm" pointer-events="none">
+          <path d="M108 112 C150 108 200 100 250 97 C290 95 322 94 342 96 C372 99 376 160 344 163 C312 166 262 162 220 158 C178 154 140 151 108 150 Z" fill="url(#sp-shade)"/>
+          <path d="M114 110 C100 102 80 100 64 104 C48 109 38 120 38 134 C38 150 50 161 68 162 C86 163 102 158 114 150 Z" fill="url(#sp-shade)"/>
+        </g>
+        <!-- tefillin shel yad: titura base with ma'abarta, bayit, and the yud knot -->
+        <g class="box"><g transform="translate(0 7)">
+          <path d="M296 96 L346 94 L348 101 L298 103 Z" fill="#1A1928"/>
+          <path d="M304 64 L336 63 L336 96 L304 97 Z" fill="url(#sp-front)"/>
+          <path d="M304 64 L313 55 L345 54 L336 63 Z" fill="#45445E"/>
+          <path d="M336 63 L345 54 L345 87 L336 96 Z" fill="#0C0B14"/>
+          <path d="M306 66 L334 65" stroke="#fff" stroke-opacity=".18" stroke-width="1.5"/>
+          <path d="M313 55 L345 54" stroke="#fff" stroke-opacity=".25" stroke-width="1"/>
+          <path d="M292 99 C286 97 284 104 290 106 C295 107 297 101 292 99 Z" fill="#14131F"/>
+        </g></g>
+      </g>
+      <text class="shin" x="200" y="322" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="38" fill="#B8893B">ש</text>
     </svg>
     <button type="button" class="splash-skip" id="splash-skip">דילוג</button>
   </div>

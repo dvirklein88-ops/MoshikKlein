@@ -21,7 +21,7 @@
       var skip = document.getElementById('splash-skip');
       if (skip) skip.addEventListener('click', function (e) { e.stopPropagation(); removeSplash(); });
       splash.addEventListener('click', removeSplash);
-      setTimeout(removeSplash, 1500);
+      setTimeout(removeSplash, 2000);
     } else {
       splash.parentNode.removeChild(splash);
       splash = null;
