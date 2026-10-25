@@ -19,6 +19,11 @@
   - תפריט נייד
   - הכול כבוי במצב "הפחתת תנועה".
 - **מסמכי Impeccable:** PRODUCT.md ו-`.impeccable/surfaces/`.
+- **SEO ו-AI:**
+  - title ו-description שנכתבו מחדש עם מילות מפתח בעברית ("מורה לבר מצווה במודיעין ובזום" ועוד), meta keywords, ו-OG/Twitter מלאים.
+  - JSON-LD ב-@graph: ‏LocalBusiness/EducationalOrganization, ‏Person, ‏WebSite ו-FAQPage, תואם לשאלות שמוצגות באתר.
+  - ‏robots.txt פתוח לסורקי חיפוש ו-AI, sitemap.xml ו-llms.txt.
+  - **כשיהיה דומיין:** לעדכן את כל הכתובות. מושיק צריך לשלוח את ה-sitemap ל-Search Console ולפתוח פרופיל Google Business.
 - **קול:** לבקשת דביר, הטקסט באתר עבר לגוף ראשון: מושיק פונה ישירות להורה. בתפריט, "על מושיק" הוחלף ב"קצת עליי", וכותרת הסקשן היא "נעים מאוד, אני מושיק". העובדות לא השתנו. ה-title, ה-meta וה-og נשארו בגוף שלישי, כי כך מתאים ל-SEO.
 
 ### בדיקות לעיצוב החדש (2026-10-26, Playwright/Chromium מקומי)
