@@ -201,22 +201,22 @@ a { color: var(--gold-hi); }
 .splash { display: none; }
 html.splash-on .splash { display: grid; place-items: center; position: fixed; inset: 0; z-index: 1000; background: var(--parchment); cursor: pointer; transition: opacity .3s ease; }
 html.splash-on .splash.out { opacity: 0; pointer-events: none; }
-.splash-inner { text-align: center; width: min(320px, 80vw); }
+.splash-inner { text-align: center; width: min(400px, 90vw); }
 .splash-svg { width: 100%; height: auto; overflow: visible; }
 .splash-skip { margin-top: 16px; min-height: 44px; padding: 8px 22px; border-radius: 999px; border: 2px solid #1F4E79; background: transparent; color: #1F4E79; font: 700 1rem var(--font-body); cursor: pointer; }
 .splash :focus-visible { outline-color: #1F4E79; }
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
-  .splash .strap { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .splash .arm, .splash .box, .splash .shin { opacity: 0; }
-  .splash .box { transform-box: fill-box; transform-origin: 50% 100%; transform: scale(.6); }
+  .splash .arm, .splash .box, .splash .wrap, .splash .shin { opacity: 0; }
+  .splash .box { transform-box: fill-box; transform-origin: 50% 100%; transform: translateY(-18px); }
+  .splash .wrap { transform-box: fill-box; transform-origin: 50% 0; transform: scaleY(0); }
   html.splash-on .splash .arm { animation: fadeIn .25s ease forwards; }
-  html.splash-on .splash .box { animation: pop .25s .2s ease-out forwards; }
-  html.splash-on .splash .strap { animation: draw .75s .4s ease-in-out forwards; }
-  html.splash-on .splash .shin { animation: fadeIn .3s 1.1s ease forwards; }
-  @keyframes pop { to { opacity: 1; transform: scale(1); } }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
+  html.splash-on .splash .box { animation: drop .3s .2s cubic-bezier(.3, 1.4, .6, 1) forwards; }
+  html.splash-on .splash .wrap { animation: wrap .16s calc(.45s + var(--i) * .07s) ease-out forwards; }
+  html.splash-on .splash .shin { animation: fadeIn .3s 1.15s ease forwards; }
+  @keyframes drop { to { opacity: 1; transform: none; } }
+  @keyframes wrap { to { opacity: 1; transform: none; } }
   @keyframes fadeIn { to { opacity: 1; } }
 
   /* Staggered fade-up reveals (class added only by JS) */

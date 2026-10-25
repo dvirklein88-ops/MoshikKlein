@@ -64,21 +64,42 @@
 <!-- 1. Splash (shown only when JS adds html.splash-on) -->
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-inner">
-    <svg class="splash-svg" viewBox="0 0 260 160" role="presentation" focusable="false">
-      <!-- arm: fist on the left, upper arm on the right -->
-      <g class="arm">
-        <path d="M40 54 L150 48 C185 43 215 38 252 36 L252 104 C215 103 185 99 150 94 L40 86 Z" fill="#E6C29C" stroke="#1C1B2B" stroke-width="2.5" stroke-linejoin="round"/>
-        <rect x="10" y="50" width="38" height="42" rx="14" fill="#E6C29C" stroke="#1C1B2B" stroke-width="2.5"/>
+    <svg class="splash-svg" viewBox="0 -34 300 200" role="presentation" focusable="false">
+      <defs>
+        <clipPath id="sp-arm"><path d="M80 54 L258 40 Q288 38 288 70 Q288 102 258 100 L80 92 Z"/></clipPath>
+        <clipPath id="sp-hand"><path d="M34 60 Q36 48 54 48 L84 52 Q92 72 84 94 L52 98 Q30 98 28 82 Q26 70 34 60 Z"/></clipPath>
+      </defs>
+      <g transform="rotate(-10 150 70)">
+        <!-- forearm (elbow on the right) and fist, flat style -->
+        <g class="arm">
+          <path d="M80 54 L258 40 Q288 38 288 70 Q288 102 258 100 L80 92 Z" fill="#EFD3A2"/>
+          <path d="M80 80 L258 86 Q284 86 287 74 Q288 102 258 100 L80 92 Z" fill="#E2BE85"/>
+          <path d="M34 60 Q36 48 54 48 L84 52 Q92 72 84 94 L52 98 Q30 98 28 82 Q26 70 34 60 Z" fill="#EFD3A2"/>
+          <path d="M30 78 Q40 70 52 74" fill="none" stroke="#E2BE85" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <!-- strap wraps: appear one by one from the elbow toward the hand -->
+        <g clip-path="url(#sp-arm)" fill="#1C1B2B">
+          <polygon class="wrap" style="--i:0" points="240,34 254,34 224,108 210,108"/>
+          <polygon class="wrap" style="--i:1" points="216,34 230,34 200,108 186,108"/>
+          <polygon class="wrap" style="--i:2" points="192,34 206,34 176,108 162,108"/>
+          <polygon class="wrap" style="--i:3" points="168,34 182,34 152,108 138,108"/>
+          <polygon class="wrap" style="--i:4" points="144,34 158,34 128,108 114,108"/>
+          <polygon class="wrap" style="--i:5" points="120,34 134,34 104,108 90,108"/>
+          <polygon class="wrap" style="--i:6" points="98,34 112,34 82,108 68,108"/>
+        </g>
+        <g clip-path="url(#sp-hand)" fill="#1C1B2B">
+          <polygon class="wrap" style="--i:7" points="76,44 87,44 71,104 60,104"/>
+          <polygon class="wrap" style="--i:8" points="56,44 66,44 50,104 40,104"/>
+        </g>
+        <!-- tefillin shel yad: titura base + bayit (3D cube) near the elbow -->
+        <g class="box">
+          <rect x="230" y="36" width="40" height="7" rx="1.5" fill="#1C1B2B"/>
+          <polygon points="236,12 244,4 270,4 262,12" fill="#3A3950"/>
+          <polygon points="262,12 270,4 270,30 262,38" fill="#0E0E1A"/>
+          <rect x="236" y="12" width="26" height="26" rx="1.5" fill="#1C1B2B"/>
+        </g>
       </g>
-      <!-- tefillin shel yad: base (titura) + box (bayit) on the bicep -->
-      <g class="box">
-        <rect x="190" y="35" width="40" height="7" rx="1.5" fill="#1C1B2B"/>
-        <rect x="197" y="12" width="26" height="24" rx="2" fill="#1C1B2B"/>
-        <rect x="200" y="15" width="6" height="18" rx="1" fill="#3A3950"/>
-      </g>
-      <!-- strap: from the box along the arm, seven wraps, ending at the hand -->
-      <path class="strap" pathLength="1" d="M201 42 C182 46 160 47 146 48.6 M140 48.5 Q129.0 70.5 128 92.4 M127 49.3 Q116.0 70.4 115 91.5 M114 50.0 Q103.0 70.2 102 90.5 M101 50.7 Q90.0 70.1 89 89.6 M88 51.4 Q77.0 70.0 76 88.6 M75 52.1 Q64.0 69.9 63 87.7 M62 52.8 Q51.0 69.8 50 86.7 M50 86.7 C40 90 30 92 24 84 C20 78 22 66 30 62" fill="none" stroke="#1C1B2B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text class="shin" x="130" y="150" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="40" fill="#B8893B">ש</text>
+      <text class="shin" x="150" y="160" text-anchor="middle" font-family="Frank Ruhl Libre, serif" font-weight="900" font-size="40" fill="#B8893B">ש</text>
     </svg>
     <button type="button" class="splash-skip" id="splash-skip">דילוג</button>
   </div>
@@ -117,7 +138,8 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-text">
-        <h1 id="hero-title">מכינים לבר מצווה — בביטחון, בשמחה ובגובה העיניים</h1>
+        <p class="eyebrow">הכנה לבר מצווה · מודיעין־מכבים־רעות וזום</p>
+        <h1 id="hero-title">מכינים לבר מצווה <span class="h1-sub">בביטחון, בשמחה ובגובה העיניים</span></h1>
         <p class="lead">יום הבר מצווה יהיה רגע של גאווה, לא של לחץ. קריאה בתורה, הפטרה והכנה להנחת תפילין, בליווי של מושיק קליין.</p>
         <div class="cta-row">
           <a class="btn btn-wa" href="https://wa.me/972544447068?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A9%D7%99%D7%A7%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%9B%D7%A0%D7%94%20%D7%9C%D7%91%D7%A8%20%D7%9E%D7%A6%D7%95%D7%95%D7%94" target="_blank" rel="noopener">
