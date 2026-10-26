@@ -511,6 +511,21 @@ After approval:
 
 Do not report production launch as successful until the live URL has been checked.
 
+## Search Console verification (agent)
+
+Run this after the production URL is live, and only with the owner's approval. Launch a dedicated agent for it, with these steps:
+
+1. **Get the token.** Take the content value from the HTML tag method in Google Search Console (`<meta name="google-site-verification" content="…">`). If the owner pastes the full tag, extract only the content value. Do not invent or guess a token.
+2. **Validate it.** The token is a non-empty string of letters, digits, `-` and `_`. Stop and ask if it does not match.
+3. **Add it to the site.** Put the tag once, in `<head>` of `public/index.html`, next to the robots meta. Never duplicate it. If a different verification tag is already there, stop and ask whether to keep it.
+4. **Test locally.** Confirm the tag appears exactly once in `<head>`, and run `grep -c google-site-verification public/index.html`.
+5. **Confirm it is live.** After deploy, fetch the production URL and confirm the tag appears in the served HTML, not just in the repository.
+6. **Ask the owner to click Verify.** Verification runs under the owner's Google account in Search Console. The agent does not do it.
+7. **Keep the tag.** Do not remove it after verification, or the verification may lapse.
+8. **Run the checks.** Confirm that `https://<site>/sitemap.xml` and `https://<site>/robots.txt` return 200, that the sitemap lists the production URLs, and that robots.txt does not block them. Record the results in `PROJECT_NOTES.md`.
+
+Report the tag location, the live-check result, and the sitemap and robots results. Do not report the verification as complete until Search Console confirms it.
+
 # Phase 10 — Handover and Maintenance
 
 Provide a practical handover containing:
