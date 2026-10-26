@@ -28,28 +28,6 @@
     });
   }
 
-  /* ---------- Host badge (Netlify "Powered by") ----------
-     The host injects a fixed badge at the bottom of the viewport after load. When it
-     appears, reserve its height so the contact bar and footer sit above it. */
-  var docEl = document.documentElement;
-  function fitBadge() {
-    var badge = document.getElementById('nl-badge-frame');
-    var h = badge ? Math.ceil(badge.getBoundingClientRect().height) : 0;
-    docEl.style.setProperty('--badge-h', h ? (h + 8) + 'px' : '0px');
-    docEl.classList.toggle('has-badge', h > 0);
-    if (badge && !badge._watched && 'ResizeObserver' in window) {
-      badge._watched = true;
-      new ResizeObserver(fitBadge).observe(badge);
-    }
-    return !!badge;
-  }
-  if (!fitBadge() && 'MutationObserver' in window) {
-    var bmo = new MutationObserver(function () { if (fitBadge()) bmo.disconnect(); });
-    bmo.observe(document.body, { childList: true, subtree: true });
-    setTimeout(function () { bmo.disconnect(); }, 15000);
-  }
-  window.addEventListener('resize', fitBadge);
-
   /* ---------- Approach quote: words light up with scroll ---------- */
   var quote = document.getElementById('quote');
   var words = [];
