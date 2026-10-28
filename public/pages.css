@@ -103,8 +103,5 @@
   .cta-panel { padding: clamp(40px, 5vw, 72px); }
 }
 
-/* Photos in the page hero; trope table inside the article */
+/* Images in the page hero */
 .page-hero-fig img { border-radius: var(--r-card); }
-.trope-fig, .block-fig { margin: 18px 0 0; max-width: 420px; }
-.trope-fig img, .block-fig img { width: 100%; height: auto; }
-.block-fig img { border-radius: var(--r-card); }
