@@ -102,3 +102,8 @@
   .article .steps { grid-template-columns: repeat(3, 1fr); }
   .cta-panel { padding: clamp(40px, 5vw, 72px); }
 }
+
+/* Photos in the page hero; trope table inside the article */
+.page-hero-fig img { border-radius: var(--r-card); }
+.trope-fig { margin: 18px 0 0; max-width: 420px; }
+.trope-fig img { width: 100%; height: auto; }
