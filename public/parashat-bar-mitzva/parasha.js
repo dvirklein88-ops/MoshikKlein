@@ -134,7 +134,11 @@
       if (f & flags.SPECIAL_SHABBAT) label = e.render(LOC);
       else if (f & flags.ROSH_CHODESH) label = 'שבת ' + e.render(LOC);
       else if (/^Chanukah/.test(desc)) label = 'שבת חנוכה';
-      if (label && !isChag && list.indexOf(label) < 0) list.push(label);
+      if (label && !isChag && list.indexOf(label) < 0) {
+        list.push(label);
+        // Rosh Chodesh, Chanukah and the four parshiyot add a reading from a second Torah scroll
+        if ((f & flags.ROSH_CHODESH) || /^Chanukah|^Shabbat (Shekalim|Zachor|Parah|HaChodesh)/.test(desc)) list.adds = true;
+      }
     });
     return list;
   }
@@ -201,7 +205,9 @@
 
     var notes = r.notes.slice();
     if (r.special.length) {
-      notes.push('באותה שבת חלה גם ' + esc(r.special.join(' ו')) + '. בשבתות כאלה ההפטרה, ולפעמים גם המפטיר, שונים מהרגיל.');
+      notes.push('באותה שבת חלה גם ' + esc(r.special.join(' ו')) + '. ' + (r.special.adds
+        ? 'קוראים את הפרשה כרגיל, ומוסיפים לה קריאה נוספת מספר תורה שני (המפטיר). גם ההפטרה מתחלפת.'
+        : 'קוראים את הפרשה כרגיל, וההפטרה מתחלפת בהפטרה מיוחדת לשבת הזו.'));
     }
     var oName = r.other.label;
     if (oName !== pName && !(r.sh.chag && r.other.chag)) {
