@@ -24,10 +24,8 @@
 | # | קובץ | עמוד | תיאור מוצע | יחס |
 |---|---|---|---|---|
 | 6 | `hachana-lebar-mitzva-maslulim.webp` | /hachana-lebar-mitzva/ | ספר תורה פתוח על בימה עם יד (מצביע) מכסף, אור חם ורך | 16:9 |
-| 7 | `taamei-hamikra-tavla.webp` | /taamei-hamikra/ | חומש או תיקון קוראים פתוח על שולחן עץ, עיפרון לידו, הטקסט מחוץ לפוקוס | 16:9 |
 | 8 | `limud-haftara-bar-mitzva.webp` | /haftara/ | ספר נביאים פתוח על עמוד קריאה בבית כנסת, אור מחלון | 16:9 |
 | 9 | `hanachat-tefillin-bar-mitzva.webp` | /tefillin/ | תפילין ותיק תפילין קטיפה על שולחן, בלי אנשים | 16:9 |
 | 10 | `limud-kria-batora-zoom.webp` | /online/ | מחשב נייד על שולחן ולידו חומש פתוח. המסך מטושטש, בלי פנים מזוהות | 16:9 |
-| 11 | `aliya-latora-bar-mitzva.webp` | /aliya-latora/ | בימה בבית כנסת, ספר תורה מכוסה ומעליו טלית מקופלת | 16:9 |
 | 12 | `parashat-bar-mitzva-luach-ivri.webp` | /parashat-bar-mitzva/ | לוח שנה עברי על שולחן ולידו חומש סגור. אותיות מטושטשות | 16:9 |
 | 13 | `og-moshik-klein.jpg` | תמונת שיתוף (og:image) לכל האתר | אפשר להשתמש בתמונה האמיתית של מושיק על רקע בצבעי האתר | 1200×630 |
