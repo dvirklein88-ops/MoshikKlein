@@ -28,7 +28,7 @@ A single, personal teacher with 20+ years of experience who connects kids to Tor
 - No logo. The splash animation and ש mark are not binding (owner approved replacing them, 2026-10-26).
 
 ## Evidence on Hand
-- Hero photo of Moshik: `public/assets/img/moshik-cutout-*.webp` (background removed), `moshik-hero-*.jpg` (og:image).
+- Hero photo of Moshik: `public/assets/img/moshik-klein-moreh-bar-mitzva-*.webp` (background removed), `moshik-hero-*.jpg` (og:image).
 - No testimonials yet: WhatsApp screenshots from parents will arrive later (names/numbers hidden, consent required). Photo "Moshik learning with a boy" pending. Keep placeholders clearly marked; never fabricate.
 
 ## Product Principles

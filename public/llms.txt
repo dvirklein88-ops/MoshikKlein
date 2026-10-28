@@ -20,5 +20,15 @@
 - אימייל: moshikklein@gmail.com
 - אתר: https://moshik-klein.netlify.app/
 
-## הערות
-- המחירים לא מפורסמים באתר; יש לפנות ישירות.
+## מחיר
+- 500 ש"ח בחודש (125 ש"ח לשיעור), שיעור אחד בשבוע
+
+## עמודים
+- https://moshik-klein.netlify.app/ – מורה לבר מצווה במודיעין ובזום
+- https://moshik-klein.netlify.app/hachana-lebar-mitzva/ – הכנה לבר מצווה: מסלולים ותהליך
+- https://moshik-klein.netlify.app/taamei-hamikra/ – לימוד טעמי המקרא בנוסח אשכנזי
+- https://moshik-klein.netlify.app/haftara/ – לימוד הפטרה לבר מצווה
+- https://moshik-klein.netlify.app/tefillin/ – הכנה להנחת תפילין
+- https://moshik-klein.netlify.app/online/ – לימוד קריאה בתורה בזום
+- https://moshik-klein.netlify.app/parashat-bar-mitzva/ – מחשבון פרשת בר מצווה לפי תאריך לידה
+- https://moshik-klein.netlify.app/aliya-latora/ – הכנה לעלייה לתורה
