@@ -29,6 +29,5 @@
 - https://moshik-klein.netlify.app/taamei-hamikra/ – לימוד טעמי המקרא בנוסח אשכנזי
 - https://moshik-klein.netlify.app/haftara/ – לימוד הפטרה לבר מצווה
 - https://moshik-klein.netlify.app/tefillin/ – הכנה להנחת תפילין
-- https://moshik-klein.netlify.app/online/ – לימוד קריאה בתורה בזום
 - https://moshik-klein.netlify.app/parashat-bar-mitzva/ – מחשבון פרשת בר מצווה לפי תאריך לידה
 - https://moshik-klein.netlify.app/aliya-latora/ – הכנה לעלייה לתורה

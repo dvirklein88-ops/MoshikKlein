@@ -28,3 +28,15 @@
   for = "/*.txt"
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
+
+[[redirects]]
+  from = "/online/"
+  to = "/hachana-lebar-mitzva/#zoom"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/online"
+  to = "/hachana-lebar-mitzva/#zoom"
+  status = 301
+  force = true
