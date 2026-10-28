@@ -25,7 +25,7 @@
 
 ## עמודים
 - https://moshik-klein.netlify.app/ – מורה לבר מצווה במודיעין ובזום
-- https://moshik-klein.netlify.app/hachana-lebar-mitzva/ – הכנה לבר מצווה: מסלולים ותהליך
+- https://moshik-klein.netlify.app/hachana-lebar-mitzva/ – הכנה לבר מצווה: מסלולים, תהליך, מחיר ולימוד בזום
 - https://moshik-klein.netlify.app/taamei-hamikra/ – לימוד טעמי המקרא בנוסח אשכנזי
 - https://moshik-klein.netlify.app/haftara/ – לימוד הפטרה לבר מצווה
 - https://moshik-klein.netlify.app/tefillin/ – הכנה להנחת תפילין

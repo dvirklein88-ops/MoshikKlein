@@ -105,5 +105,6 @@
 
 /* Photos in the page hero; trope table inside the article */
 .page-hero-fig img { border-radius: var(--r-card); }
-.trope-fig { margin: 18px 0 0; max-width: 420px; }
-.trope-fig img { width: 100%; height: auto; }
+.trope-fig, .block-fig { margin: 18px 0 0; max-width: 420px; }
+.trope-fig img, .block-fig img { width: 100%; height: auto; }
+.block-fig img { border-radius: var(--r-card); }
