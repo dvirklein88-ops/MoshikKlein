@@ -30,6 +30,10 @@
 .block-body { display: grid; gap: 14px; max-width: 64ch; }
 .block-body p, .block-body li { color: var(--ink-2); }
 .block-body strong { color: var(--ink); font-weight: 500; }
+.block-body .track-a p { color: var(--on-night-2); }
+.block-body .track-b p { color: var(--ink-2); }
+.block-body .track-b .track-when { color: var(--ink); }
+.block-body .track-a .track-when { color: var(--on-night); }
 .block-body a, .faq .a a {
   color: var(--ink); text-decoration: underline; text-decoration-color: #6B4E1E;
   text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease;
@@ -57,7 +61,6 @@
 .article .track h3 { font-size: clamp(30px, 3.4vw, 42px); padding-bottom: 20px; }
 .article .steps { gap: 24px; }
 .article .faq { border-top: 0; }
-.faq .a p + p { margin-top: -12px; }
 
 /* Related links */
 .related { display: grid; gap: 10px; }

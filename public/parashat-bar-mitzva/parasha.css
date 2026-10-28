@@ -111,7 +111,7 @@
   .pb-hero { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); column-gap: 56px; align-items: start; padding-top: 28px; }
   .pb-intro { padding-top: 24px; }
   .pb-calc-panel { padding: clamp(32px, 4vw, 52px); grid-row: span 2; }
-  .pb-disclaimer { grid-column: 1; grid-row: 2; align-self: end; }
+  .pb-disclaimer { grid-column: 1; grid-row: 2; align-self: start; }
   .pb-how-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; }
   .pb-end-panel { padding: clamp(40px, 5vw, 72px); }
 }
