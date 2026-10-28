@@ -106,7 +106,15 @@
   function shabbatInfo(hd, il) {
     var sat = hd.onOrAfter(6);
     var res = HebrewCalendar.getSedra(sat.getFullYear(), il).lookup(sat);
-    return { sat: sat, chag: res.chag, names: res.parsha };
+    var label = parashaName(res.parsha);
+    if (res.chag) {
+      // Prefer the exact yom tov name (e.g. "שבועות ב׳") over the generic sedra label.
+      var yt = (HebrewCalendar.getHolidaysOnDate(sat, il) || []).filter(function (e) {
+        return (e.getFlags() & flags.CHAG) && !(e.getFlags() & flags.EREV);
+      });
+      if (yt.length === 1) label = yt[0].render(LOC);
+    }
+    return { sat: sat, chag: res.chag, names: res.parsha, label: label };
   }
   function nextRegular(sat, il) {
     var d = sat;
@@ -170,7 +178,7 @@
     var satG = r.sh.sat.greg();
     var place = r.il ? 'בישראל' : 'בחו״ל';
     var same = r.sh.sat.isSameDate(r.bm);
-    var pName = parashaName(r.sh.names);
+    var pName = r.sh.label;
     var mainLine, waReading;
 
     if (r.sh.chag) {
@@ -178,7 +186,7 @@
         '<p class="r-note">בשבת הזו אין קריאה של פרשת השבוע הרגילה: ' + place + ' קוראים בה את קריאת החג (' + esc(pName) + ').' +
         (r.next ? ' הפרשה הרגילה הבאה היא <strong>פרשת ' + esc(parashaName(r.next.names)) + '</strong>, בשבת ' + esc(fmtShort.format(r.next.sat.greg())) + ' (' + esc(hebStr(r.next.sat)) + ').' : '') +
         ' כדאי לדבר עם רב בית הכנסת על מה שהילד יקרא.</p>';
-      waReading = 'בשבת הזו קוראים קריאת חג (' + pName + ')';
+      waReading = 'קריאת חג (' + pName + ')';
     } else {
       mainLine = '<p class="r-parasha"><span class="r-kicker">הפרשה</span>פרשת ' + esc(pName) + '</p>';
       waReading = 'פרשת ' + pName;
@@ -195,16 +203,16 @@
     if (r.special.length) {
       notes.push('באותה שבת חלה גם ' + esc(r.special.join(' ו')) + '. בשבתות כאלה ההפטרה, ולפעמים גם המפטיר, שונים מהרגיל.');
     }
-    var oName = parashaName(r.other.names);
-    if (oName !== pName) {
+    var oName = r.other.label;
+    if (oName !== pName && !(r.sh.chag && r.other.chag)) {
       notes.push((r.il ? 'בחו״ל' : 'בישראל') + ' קוראים בשבת הזו ' + (r.other.chag ? 'קריאת חג (' + esc(oName) + ')' : 'את <strong>פרשת ' + esc(oName) + '</strong>') + '. אחרי חג שחל בשבת יש לפעמים כמה שבועות של פער בין ישראל לחו״ל.');
     }
     if (notes.length) {
       html += '<ul class="r-notes">' + notes.map(function (n) { return '<li>' + n + '</li>'; }).join('') + '</ul>';
     }
 
-    var msg = 'היי מושיק, הגעתי מהאתר ובדקתי את פרשת הבר מצווה. הבר מצווה ב' + hebStr(r.bm) + ' (' + fmtShort.format(bmG) + '), ' +
-      'ובשבת ' + fmtShort.format(satG) + ' ' + place + ': ' + waReading + '. אשמח לשמוע על הכנה לבר מצווה.';
+    var msg = 'היי מושיק, הגעתי מהאתר ובדקתי את פרשת הבר מצווה. תאריך הבר מצווה: ' + hebStr(r.bm) + ' (' + fmtShort.format(bmG) + '). ' +
+      'השבת: ' + fmtShort.format(satG) + ' (' + place + ') – ' + waReading + '. אשמח לשמוע על הכנה לבר מצווה.';
     html += '<div class="r-cta">' +
       '<p>רוצים להתחיל להתכונן לפרשה הזו? הכי טוב שנדבר על זה.</p>' +
       '<div class="r-btns">' +
