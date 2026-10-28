@@ -1,0 +1,101 @@
+/* מושיק קליין – עמודים פנימיים. נטען אחרי styles.css ומשתמש באותם טוקנים. */
+
+/* ---------- Breadcrumb ---------- */
+.crumbs { padding-top: 18px; font-size: .875rem; color: var(--ink-2); }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.crumbs li { display: inline-flex; align-items: center; gap: 10px; }
+.crumbs li + li::before { content: "‹"; color: rgba(30, 26, 22, .4); }
+.crumbs a { text-decoration: underline; text-decoration-color: rgba(30, 26, 22, .28); text-underline-offset: 3px; transition: color .2s ease, text-decoration-color .2s ease; }
+.crumbs a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.crumbs [aria-current="page"] { color: var(--ink); }
+
+/* ---------- Page hero ---------- */
+.page-hero { padding-top: 12px; }
+.page-hero-panel { background: var(--panel); display: grid; }
+.page-hero-copy { padding: 36px 24px 8px; }
+.page-hero h1 { font-size: clamp(36px, 8.4vw, 72px); line-height: 1.08; }
+.page-hero h1 em { display: block; }
+.page-hero .lead { max-width: 52ch; }
+.page-hero-fig { justify-self: center; align-self: center; width: 86%; max-width: 440px; padding: 28px 0 32px; }
+.page-hero-fig img { width: 100%; height: auto; }
+
+/* ---------- Article blocks ---------- */
+.article { padding-top: clamp(56px, 8vw, 110px); }
+.block { display: grid; gap: 14px; padding-block: 34px; border-top: 1px solid var(--line); }
+.block:last-child { border-bottom: 1px solid var(--line); }
+.block h2 {
+  font: 300 clamp(28px, 3.6vw, 44px)/1.15 var(--serif);
+  letter-spacing: -.01em; text-wrap: balance; overflow-wrap: anywhere;
+}
+.block-body { display: grid; gap: 14px; max-width: 64ch; }
+.block-body p, .block-body li { color: var(--ink-2); }
+.block-body strong { color: var(--ink); font-weight: 500; }
+.block-body a, .faq .a a {
+  color: var(--ink); text-decoration: underline; text-decoration-color: #6B4E1E;
+  text-decoration-thickness: 1px; text-underline-offset: 4px; transition: text-decoration-color .2s ease;
+}
+.block-body a:hover { text-decoration-color: var(--ink); }
+
+.dots { display: grid; gap: 10px; }
+.dots li { position: relative; padding-inline-start: 20px; }
+.dots li::before {
+  content: ""; position: absolute; inset-inline-start: 0; top: .72em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+}
+
+/* Price line */
+.price {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
+  padding: 18px 22px; border-radius: var(--r-card); background: var(--ground-2);
+}
+.price b { font: 300 clamp(28px, 3.4vw, 38px)/1.1 var(--serif); color: var(--ink); }
+.price span { color: var(--ink-2); }
+
+/* Reused home components inside articles */
+.article .track-grid { margin-top: 6px; }
+.article .track { min-height: 0; }
+.article .track h3 { font-size: clamp(30px, 3.4vw, 42px); padding-bottom: 20px; }
+.article .steps { gap: 24px; }
+.article .faq { border-top: 0; }
+.faq .a p + p { margin-top: -12px; }
+
+/* Related links */
+.related { display: grid; gap: 10px; }
+.related a {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 20px; border-radius: var(--r-card); background: var(--ground-2);
+  font: 400 clamp(19px, 2vw, 22px)/1.35 var(--serif); color: var(--ink); text-decoration: none;
+  transition: background-color .25s ease;
+}
+.related a::after { content: "←"; flex: none; font-family: var(--sans); color: #6B4E1E; transition: transform .45s var(--ease-out); }
+@media (hover: hover) {
+  .related a:hover { background: #E2D9CF; }
+  .related a:hover::after { transform: translateX(-4px); }
+}
+
+/* ---------- Closing CTA ---------- */
+.page-cta { padding-bottom: clamp(64px, 9vw, 120px); }
+.cta-panel { background: var(--panel); padding: 36px 24px; }
+.cta-panel .h2 { margin-bottom: 14px; }
+.cta-panel p { color: var(--ink-on-panel); font-size: 18px; max-width: 52ch; }
+.cta-panel .ctas { margin-top: 26px; }
+.text-link { display: inline-block; margin-top: 18px; color: var(--ink-on-panel); text-decoration: underline; text-underline-offset: 4px; }
+.text-link:hover { color: var(--ink); }
+
+/* ---------- Footer page list (base styles live in styles.css) ---------- */
+.f-pages a[aria-current="page"] { color: var(--on-night); text-decoration-color: currentColor; }
+
+@media (min-width: 640px) {
+  .related { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .page-hero-panel { grid-template-columns: 1.15fr .85fr; align-items: center; }
+  .page-hero-copy { padding: clamp(40px, 5.5vw, 80px); }
+  .page-hero-fig { width: 100%; padding: 40px 0; padding-inline-end: clamp(24px, 4vw, 64px); }
+  .block { grid-template-columns: minmax(0, 22rem) minmax(0, 1fr); gap: 48px; padding-block: 44px; align-items: start; }
+  .block-wide { grid-template-columns: 1fr; gap: 24px; }
+  .block-wide .block-body { max-width: none; }
+  .article .steps { grid-template-columns: repeat(3, 1fr); }
+  .cta-panel { padding: clamp(40px, 5vw, 72px); }
+}

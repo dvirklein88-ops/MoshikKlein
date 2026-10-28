@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" role="img" aria-label="איור קווי של תפילין של יד ותפילין של ראש עם רצועות">
+  <circle cx="240" cy="200" r="168" fill="#F3EEE8"/>
+  <g stroke="#1E1A16" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M110 250 h108 v22 h-108 z" fill="#3A322B"/>
+    <path d="M124 170 h80 v80 h-80 z" fill="#1E1A16"/>
+    <path d="M124 170 l18 -16 h80 l-18 16 z" fill="#5A5047"/>
+    <path d="M204 170 l18 -16 v80 l-18 16 z" fill="#3A322B"/>
+    <path d="M110 272 C 80 300 70 330 108 340 C 150 350 190 330 236 340" fill="none"/>
+    <path d="M268 246 h108 v22 h-108 z" fill="#3A322B"/>
+    <path d="M282 166 h80 v80 h-80 z" fill="#1E1A16"/>
+    <path d="M282 166 l18 -16 h80 l-18 16 z" fill="#5A5047"/>
+    <path d="M362 166 l18 -16 v80 l-18 16 z" fill="#3A322B"/>
+    <path d="M376 258 C 420 250 430 210 412 176 C 396 146 360 118 322 110 C 284 102 250 112 236 134" fill="none"/>
+  </g>
+  <path d="M302 186 v34 q0 8 8 8 h24 q8 0 8 -8 v-34 M322 186 v42" fill="none" stroke="#DDB04F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M244 336 C 270 330 300 340 330 330" fill="none" stroke="#6B4E1E" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/>
+</svg>

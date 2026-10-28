@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" role="img" aria-label="ספר תורה פתוח על עמודי העץ, ויד מצביעה על שורת הקריאה">
+  <rect x="112" y="92" width="256" height="216" fill="#F3EEE8" stroke="#1E1A16" stroke-width="4"/>
+  <g stroke="#CBBFB5" stroke-width="8" stroke-linecap="round">
+    <path d="M140 126 H 226"/><path d="M140 154 H 226"/><path d="M140 182 H 226"/><path d="M140 210 H 226"/><path d="M140 238 H 226"/><path d="M140 266 H 210"/>
+    <path d="M254 126 H 340"/><path d="M254 154 H 340"/><path d="M254 182 H 340"/><path d="M270 210 H 340"/><path d="M254 238 H 340"/><path d="M254 266 H 340"/>
+  </g>
+  <g fill="#6B4E1E" stroke="#1E1A16" stroke-width="4" stroke-linejoin="round">
+    <rect x="84" y="80" width="30" height="240" rx="15"/>
+    <rect x="366" y="80" width="30" height="240" rx="15"/>
+  </g>
+  <g fill="#1E1A16">
+    <rect x="94" y="44" width="10" height="38" rx="5"/><rect x="94" y="318" width="10" height="38" rx="5"/>
+    <rect x="376" y="44" width="10" height="38" rx="5"/><rect x="376" y="318" width="10" height="38" rx="5"/>
+    <circle cx="99" cy="44" r="10"/><circle cx="381" cy="44" r="10"/>
+  </g>
+  <g transform="rotate(-38 330 250)">
+    <rect x="300" y="244" width="150" height="12" rx="6" fill="#DDB04F" stroke="#1E1A16" stroke-width="3"/>
+    <circle cx="462" cy="250" r="9" fill="none" stroke="#1E1A16" stroke-width="3"/>
+    <path d="M300 244 c-10 0 -16 2 -22 6 h-10 a4 4 0 0 0 0 8 h10 c6 2 12 4 22 4 z" fill="#DDB04F" stroke="#1E1A16" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+</svg>
