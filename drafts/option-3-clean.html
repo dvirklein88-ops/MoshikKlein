@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סקיצה 3 · נקי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600&family=Noto+Serif+Hebrew:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F3EEE8; --ink:#1E1A16; --ink-2:#5C534B; --panel:#CBBFB5; --panel-2:#B9AA9D;
+  --gold:#DDB04F; --gold-ink:#3A2A06; --line:rgba(30,26,22,.12);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--ground);color:var(--ink);font:400 17px/1.6 "Noto Sans Hebrew",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--gold-ink)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+
+header{position:sticky;top:0;z-index:5;background:color-mix(in oklab,var(--ground) 78%,transparent);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font:400 22px/1 "Noto Serif Hebrew",serif;letter-spacing:-.01em}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:15px;color:var(--ink-2)}
+nav a:hover{color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:999px;font-weight:500;font-size:16px;transition:transform .5s var(--ease),background-color .3s}
+.pill:active{transform:scale(.97)}
+.pill-gold{background:var(--gold);color:var(--gold-ink)}
+.pill-gold:hover{background:#E6BC5E}
+.pill-line{border:1px solid rgba(30,26,22,.35)}
+.pill-line:hover{background:rgba(30,26,22,.06)}
+.pill.sm{height:40px;padding:0 18px;font-size:15px}
+.ico{width:18px;height:18px}
+
+.ticker{overflow:hidden;border-block:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.ticker-track{display:flex;gap:48px;width:max-content;padding:10px 0;animation:tick 38s linear infinite}
+.ticker span::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-inline-end:12px;vertical-align:middle}
+@keyframes tick{to{transform:translateX(50%)}}
+
+.hero{padding:20px 0 0}
+.panel{position:relative;overflow:hidden;border-radius:28px;background:var(--panel);min-height:min(78vh,720px);display:grid;grid-template-columns:1.1fr .9fr;isolation:isolate}
+.light{position:absolute;inset:-20%;z-index:-1;background:
+  radial-gradient(40% 50% at 30% 30%,rgba(255,248,236,.55),transparent 70%),
+  radial-gradient(35% 45% at 75% 70%,rgba(120,98,80,.35),transparent 70%);
+  animation:drift 18s var(--ease) infinite alternate}
+@keyframes drift{to{transform:translate3d(-6%,4%,0) rotate(6deg)}}
+.copy{padding:clamp(32px,6vw,88px);align-self:center}
+h1{font:300 clamp(44px,6.2vw,88px)/1.02 "Noto Serif Hebrew",serif;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:#5B3F12}
+.lead{margin-top:24px;max-width:46ch;font-size:19px;color:#3A322B}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.photo{position:relative;align-self:end;justify-self:center;width:min(100%,460px)}
+.photo img{display:block;width:100%;height:auto}
+
+.intro{padding:clamp(80px,12vw,160px) 0}
+.intro p{font:300 clamp(30px,3.6vw,52px)/1.25 "Noto Serif Hebrew",serif;letter-spacing:-.01em;max-width:22ch;text-wrap:balance}
+.intro .w{opacity:.18;transition:opacity .6s var(--ease)}
+.intro .w.on{opacity:1}
+.intro small{display:block;margin-top:28px;font-size:18px;color:var(--ink-2);max-width:52ch}
+
+[data-in]{opacity:0;transform:translateY(16px);filter:blur(6px);animation:in 1s var(--ease) forwards}
+[data-in="2"]{animation-delay:.12s}[data-in="3"]{animation-delay:.24s}[data-in="4"]{animation-delay:.36s}
+@keyframes in{to{opacity:1;transform:none;filter:none}}
+
+@media (max-width:860px){
+  nav{display:none}
+  .panel{grid-template-columns:1fr;min-height:auto}
+  .copy{padding:36px 24px 0}
+  .photo{width:78%}
+  .lead{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  [data-in]{opacity:1;transform:none;filter:none}
+  .intro .w{opacity:1}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#">מושיק קליין</a>
+    <nav aria-label="ניווט ראשי"><ul>
+      <li><a href="#">הגישה</a></li><li><a href="#">מה לומדים</a></li><li><a href="#">מסלולים</a></li>
+      <li><a href="#">על מושיק</a></li><li><a href="#">שאלות נפוצות</a></li>
+    </ul></nav>
+    <a class="pill pill-line sm" href="tel:0544447068" dir="ltr">054-4447068</a>
+  </div>
+  <div class="ticker" aria-hidden="true"><div class="ticker-track">
+    <span>מעל 20 שנות ניסיון</span><span>נוסח אשכנזי</span><span>קריאה בתורה</span><span>הפטרה</span><span>הכנה להנחת תפילין</span><span>מודיעין־מכבים־רעות</span><span>זום מכל מקום</span><span>גם למשפחות חילוניות</span>
+    <span>מעל 20 שנות ניסיון</span><span>נוסח אשכנזי</span><span>קריאה בתורה</span><span>הפטרה</span><span>הכנה להנחת תפילין</span><span>מודיעין־מכבים־רעות</span><span>זום מכל מקום</span><span>גם למשפחות חילוניות</span>
+  </div></div>
+</header>
+
+<section class="hero wrap">
+  <div class="panel">
+    <div class="light" aria-hidden="true"></div>
+    <div class="copy">
+      <h1 data-in>מכינים לבר מצווה <em>בביטחון, בשמחה ובגובה העיניים</em></h1>
+      <p class="lead" data-in="2">יום הבר מצווה יהיה רגע של גאווה, לא של לחץ. קריאה בתורה, הפטרה והכנה להנחת תפילין, בליווי של מושיק קליין.</p>
+      <div class="ctas" data-in="3">
+        <a class="pill pill-gold" href="https://wa.me/972544447068" target="_blank" rel="noopener">דברו איתי בוואטסאפ</a>
+        <a class="pill pill-line" href="tel:0544447068">התקשרו</a>
+      </div>
+    </div>
+    <div class="photo" data-in="4"><img src="../public/assets/img/moshik-cutout-800.webp" width="800" height="957" alt="מושיק קליין"></div>
+  </div>
+</section>
+
+<section class="intro wrap">
+  <p id="quote">ליווי חם שמכבד את הבית שלכם, את הקצב של הילד ואת המסורת של המשפחה.</p>
+  <small>מחברים לעולם התורה בטבעיות, בלי לחץ ובלי דרשות.</small>
+</section>
+<div style="height:60vh"></div>
+
+<script>
+const q=document.getElementById('quote');
+q.innerHTML=q.textContent.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ');
+const ws=[...q.querySelectorAll('.w')];
+function paint(){const r=q.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.35)));const n=Math.round(p*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<n));}
+addEventListener('scroll',paint,{passive:true});paint();
+</script>
+</body>
+</html>
