@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Audit – moshik-klein.netlify.app</title>
+<style>
+  @page { size: A4; margin: 12mm 13mm; }
+  :root { --ink:#1f1b17; --muted:#6b625a; --line:#ddd5cc; --red:#b42318; --amber:#b54708; --green:#067647; --bg:#f7f3ee; }
+  * { box-sizing: border-box; }
+  body { font-family: "Noto Sans Hebrew", "Arial", sans-serif; color: var(--ink); background:#fff; font-size: 9.6pt; line-height: 1.42; margin: 0; }
+  h1 { font-size: 15pt; margin: 0 0 2px; }
+  h2 { font-size: 11pt; margin: 9px 0 4px; padding-bottom: 2px; border-bottom: 1.5px solid var(--ink); }
+  h3 { font-size: 10.5pt; margin: 10px 0 4px; }
+  .meta { color: var(--muted); font-size: 8.4pt; }
+  ol, ul { margin: 0; padding-inline-start: 17px; }
+  li { margin-bottom: 3px; }
+  .tag { display:inline-block; font-size: 7.6pt; font-weight:700; padding: 0 5px; border-radius: 3px; color:#fff; margin-inline-end: 4px; }
+  .crit { background: var(--red); } .quick { background: var(--green); }
+  .ev { color: var(--muted); font-size: 8pt; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.2pt; }
+  th, td { border: 1px solid var(--line); padding: 3px 5px; text-align: right; vertical-align: top; }
+  th { background: var(--bg); }
+  .kpis { display:flex; gap:6px; margin: 4px 0; }
+  .kpi { flex:1; border:1px solid var(--line); border-radius:5px; padding:3px 6px; text-align:center; }
+  .kpi b { display:block; font-size: 12.5pt; }
+  .note { background: var(--bg); border-inline-start: 3px solid var(--ink); padding: 5px 8px; font-size: 8.4pt; margin-top: 8px; }
+  .page { page-break-after: always; }
+  .shots { display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .shots figure { margin:0; border:1px solid var(--line); padding:4px; }
+  .shots img { width:100%; max-height: 330px; object-fit: contain; object-position: top; display:block; }
+  .shots figcaption { font-size: 7.8pt; color: var(--muted); margin-top: 3px; }
+  .pending { color: var(--amber); font-weight: 600; }
+  code { font-family: monospace; font-size: 8pt; direction: ltr; unicode-bidi: embed; }
+</style>
+</head>
+<body>
+
+<!-- ===================== עמוד 1: הדוח ===================== -->
+<section class="page">
+  <h1>דוח Audit: SEO ונראות במנועי AI</h1>
+  <div class="meta">אתר: moshik-klein.netlify.app (מושיק קליין, מורה לבר מצווה) · תאריך בדיקה: 29.10.2026 · עמוד אחד, ובנספחים הראיות</div>
+
+  <div class="kpis">
+    <div class="kpi"><b>85–93</b>ביצועים במובייל (3 הרצות)</div>
+    <div class="kpi"><b>3.0 שנ׳</b>LCP במובייל</div>
+    <div class="kpi"><b>0</b>קישורים שבורים</div>
+    <div class="kpi"><b>1</b>כתובות ב-sitemap</div>
+    <div class="kpi"><b>525</b>מילים בעמוד</div>
+  </div>
+
+  <h2>3 ממצאים חמורים</h2>
+  <ol>
+    <li><span class="tag crit">חמור</span><b>טקסט זמני ("כאן תבוא תמונה") מוצג לגולשים.</b> 5 משבצות ריקות מוצגות לגולשים: אחת בסעיף "נעים מאוד" ו-4 בסעיף "מה ההורים אומרים". לכן אין באתר אף המלצה אמיתית, וזה הסעיף שהכי משפיע על אמון של הורים.
+      <div class="ev">ראיה: צילומים 02 ו-03; בקוד המקור שורות 250 ו-261–264 (<code>class="ph ph-shot"</code>).</div></li>
+    <li><span class="tag crit">חמור</span><b>מידע סותר על המחיר.</b> בשאלות הנפוצות ובסכמת FAQPage מופיע "500 ש״ח בחודש, 125 ש״ח לשיעור". בקובץ ‎/llms.txt, שנכתב במיוחד בשביל מנועי AI, כתוב "המחירים לא מפורסמים באתר". מנוע AI יכול לצטט כל אחת מהגרסאות.
+      <div class="ev">ראיה: צילום 04; קובץ ‎/llms.txt בנספח ב.</div></li>
+    <li><span class="tag crit">חמור</span><b>לאתר אין דומיין משלו, ויש בו עמוד אחד בלבד שיכול להופיע בחיפוש.</b> האתר יושב על תת-דומיין <code>netlify.app</code>, ב-sitemap יש כתובת אחת בלבד, ובעמוד כולו יש כ-525 מילים. לא קיים עמוד ייעודי לאף שאילתה (למשל "מורה לבר מצווה בזום", "לימוד הפטרה"). בסכמה גם אין <code>sameAs</code> שמקשר לפרופיל העסק בגוגל או לרשתות חברתיות.
+      <div class="ev">ראיה: צילום 07 (sitemap); ספירת מילים בסריקה; JSON-LD בנספח ב.</div></li>
+  </ol>
+
+  <h2>3 הזדמנויות מהירות</h2>
+  <ol>
+    <li><span class="tag quick">מהיר</span><b>לטעון את הגופנים מהשרת של האתר במקום מ-Google Fonts.</b> הקובץ <code>fonts.googleapis.com</code> חוסם את הצגת העמוד. Lighthouse מעריך חיסכון של עד 1.95 שנ׳, ו-FCP במובייל יצא 1.8–3.1 שנ׳. אפשר גם לחסוך כ-42KB בתמונות.
+      <div class="ev">ראיה: צילום 08; Lighthouse 12.6.1 מובייל, אבחונים render-blocking-resources ו-image-delivery.</div></li>
+    <li><span class="tag quick">מהיר</span><b>להוסיף עמוד 404 בעברית ולתקן את הכתובת הכפולה.</b> כתובת שלא קיימת מחזירה את דף ה-404 הגנרי של Netlify, באנגלית ובלי דרך חזרה לאתר. בנוסף <code>/index.html</code> מחזיר 200 במקום הפניית 301 לכתובת הראשית (יש canonical, אבל עדיף להפנות).
+      <div class="ev">ראיה: צילום 05; טבלת קודי התגובה בנספח ב.</div></li>
+    <li><span class="tag quick">מהיר</span><b>לקצר את הכותרת ואת התיאור, ולהשלים את robots.txt.</b> הכותרת היא 72 תווים והתיאור 202 תווים, ובתוצאות החיפוש סביר שייחתכו. ב-robots.txt חסרים <code>Claude-SearchBot</code> ו-<code>Perplexity-User</code>, ושניהם מופיעים בתיעוד הרשמי.
+      <div class="ev">ראיה: ספירת תווים מקוד המקור; צילום 06; בדיקת הבוטים בנספח ג.</div></li>
+  </ol>
+
+  <h2>תוצאות בדיקת הנראות</h2>
+  <div class="grid">
+    <ul>
+      <li><b>Lighthouse במובייל:</b> ביצועים 85, 93 ו-88; נגישות 96; Best Practices 100; SEO 100; CLS 0; TBT 0ms.</li>
+      <li><b>סריקה טכנית:</b> 7 כתובות פנימיות, כולן 200. כותרת אחת ייחודית ו-H1 אחד. 0 קישורים שבורים (ההפניה ל-wa.me מחזירה 200). http מפנה ב-301 ל-https.</li>
+    </ul>
+    <ul>
+      <li><b>Search Console / Bing:</b> <span class="pending">לא נבדקו</span>, כי אין לי גישה לחשבונות. תג האימות של גוגל קיים בעמוד.</li>
+      <li><b>מנועי AI (5×3):</b> <span class="pending">טבלת 15 התאים מוכנה בנספח א, אבל עוד לא מולאה.</span> צריך להריץ את הפרומפטים ידנית ולצרף צילומי מסך.</li>
+    </ul>
+  </div>
+
+  <h2>המלצה: 3 צעדים לחודש הראשון</h2>
+  <ol>
+    <li><b>שבוע 1:</b> להחליף את 5 המשבצות בתמונות אמיתיות ובצילומי מסך מהורים (עם הסכמה וטשטוש פרטים). להחליט אם המחיר מתפרסם, ולעדכן את העמוד, את הסכמה ואת llms.txt כך שיהיו עקביים.</li>
+    <li><b>שבוע 2:</b> לחבר דומיין משלו עם הפניית 301 מ-netlify.app, לעדכן את ה-canonical ואת ה-sitemap, לאמת את האתר ב-Search Console וב-Bing ולשלוח sitemap. באותו שלב גם להעביר את הגופנים לשרת האתר ולהוסיף עמוד 404.</li>
+    <li><b>שבועות 3–4:</b> לפתוח פרופיל עסק בגוגל ולקשר אליו ב-<code>sameAs</code>. להוסיף 2–3 עמודי תוכן ממוקדים (זום, הפטרה, משפחות חילוניות). אחר כך להריץ שוב את טבלת ה-AI ולהשוות.</li>
+  </ol>
+
+  <div class="note"><b>מה לא כלול ולא מובטח:</b> הדוח לא מבטיח דירוג, מיקום, תנועה או לידים בגוגל, ב-Bing או במנועי AI (ChatGPT, Perplexity, Gemini). תשובות של מנועי AI משתנות בין הרצות, ואין שליטה על מה שהם מצטטים. בדיקת Search Console, Bing, סריקת Screaming Frog ומחקר מילות מפתח עם נפחי חיפוש לא נכללו בבדיקה הזו.</div>
+</section>
+
+<!-- ===================== נספח א: טבלת AI ===================== -->
+<section class="page">
+  <h2>נספח א: בדיקת נראות במנועי AI (5 פרומפטים × 3 מנועים)</h2>
+  <p class="ev">הוראות: הריצו כל פרומפט בחלון חדש בלי התחברות להיסטוריה. בכל תא רשמו: <b>מוזכר?</b> (מותג / נישה בלבד / לא), <b>מקורות שצוטטו</b>, ו<b>שפת התשובה ומשפט מייצג</b>. צלמו מסך ושמרו בשם <code>ai-P{מס׳}-{מנוע}.png</code>. כדאי להריץ כל פרומפט פעמיים, כי התשובות משתנות.</p>
+  <table>
+    <tr><th style="width:26%">פרומפט</th><th>ChatGPT</th><th>Perplexity</th><th>Gemini</th></tr>
+    <tr><td>P1. מי ממליץ על מורה לבר מצווה במודיעין?</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td></tr>
+    <tr><td>P2. איך בוחרים מורה לבר מצווה לקריאה בתורה?</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td></tr>
+    <tr><td>P3. אפשר ללמוד לבר מצווה בזום? מי מלמד הפטרה אונליין?</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td></tr>
+    <tr><td>P4. אנחנו משפחה חילונית, מי יכין את הבן שלנו לבר מצווה בלי לחץ דתי?</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td></tr>
+    <tr><td>P5. כמה עולה מורה פרטי לבר מצווה ומתי צריך להתחיל?</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td><td class="pending">טרם הורץ</td></tr>
+  </table>
+  <p class="ev">מה לחפש: האם מוזכר "מושיק קליין" או הדומיין. אם מוזכרים מתחרים, מי הם. אילו סוגי מקורות מצוטטים (מדריכים, פורומים, Google Maps, קבוצות פייסבוק). ב-P5, איזה מחיר נאמר והאם הוא מגיע מהאתר. זה מתחבר לממצא 2.</p>
+
+  <h2>נספח ג: robots.txt מול בוטי AI (נבדק מול התיעוד הרשמי, 29.10.2026)</h2>
+  <table>
+    <tr><th>טוקן</th><th>חברה ותפקיד (לפי התיעוד)</th><th>בקובץ?</th><th>המלצה</th></tr>
+    <tr><td><code>OAI-SearchBot</code></td><td>OpenAI: הופעה בחיפוש של ChatGPT</td><td>Allow</td><td>להשאיר. זה הטוקן החשוב ביותר לנראות</td></tr>
+    <tr><td><code>GPTBot</code></td><td>OpenAI: איסוף לאימון מודלים</td><td>Allow</td><td>החלטה עסקית. לא משפיע על חיפוש ב-ChatGPT</td></tr>
+    <tr><td><code>ChatGPT-User</code></td><td>OpenAI: גישה לבקשת משתמש. ייתכן שלא מכבד robots</td><td>Allow</td><td>להשאיר</td></tr>
+    <tr><td><code>ClaudeBot</code> / <code>Claude-User</code></td><td>Anthropic: אימון / גישה לבקשת משתמש</td><td>Allow</td><td>להשאיר</td></tr>
+    <tr><td><code>Claude-SearchBot</code></td><td>Anthropic: אינדוקס לחיפוש</td><td><b>חסר</b></td><td>להוסיף Allow מפורש (כרגע מכוסה רק דרך <code>*</code>)</td></tr>
+    <tr><td><code>PerplexityBot</code></td><td>Perplexity: הופעה בתוצאות, לא אימון</td><td>Allow</td><td>להשאיר</td></tr>
+    <tr><td><code>Perplexity-User</code></td><td>Perplexity: גישה לבקשת משתמש. בדרך כלל מתעלם מ-robots</td><td><b>חסר</b></td><td>להוסיף לצורך תיעוד. אין לכך השפעה מעשית</td></tr>
+    <tr><td><code>Google-Extended</code></td><td>Google: טוקן בקרה ולא סורק נפרד. שולט באימון Gemini ובעיגון (grounding). לא משפיע על Google Search</td><td>Allow</td><td>להשאיר</td></tr>
+  </table>
+  <p class="ev">מקורות: developers.openai.com/api/docs/bots · docs.perplexity.ai/guides/bots · support.claude.com (מאמר 8896518) · developers.google.com/search/docs/crawling-indexing/google-common-crawlers. <b>מסקנה:</b> הקובץ תקין ופתוח לכל הבוטים. התיקון היחיד הוא תוספת קוסמטית של שני טוקנים.</p>
+</section>
+
+<!-- ===================== נספח ב: ראיות ===================== -->
+<section>
+  <h2>נספח ב: ראיות (סריקה ב-29.10.2026)</h2>
+  <table>
+    <tr><th>כתובת</th><th>קוד</th><th>הערה</th></tr>
+    <tr><td><code>/</code></td><td>200</td><td>כותרת 72 תווים · תיאור 202 תווים · H1 אחד · canonical לעצמו · JSON-LD: LocalBusiness, Person, WebSite, FAQPage</td></tr>
+    <tr><td><code>http://…/</code></td><td>301</td><td>מפנה ל-https</td></tr>
+    <tr><td><code>/index.html</code></td><td>200</td><td>כתובת כפולה לעמוד הבית (יש canonical, אין 301)</td></tr>
+    <tr><td><code>/robots.txt</code>, <code>/sitemap.xml</code>, <code>/llms.txt</code></td><td>200</td><td>ב-sitemap כתובת אחת (lastmod 2026-10-26). ב-llms.txt כתוב "המחירים לא מפורסמים באתר"</td></tr>
+    <tr><td><code>styles.css</code>, <code>script.js</code>, <code>favicon.svg</code>, 3 תמונות</td><td>200</td><td>תמונות עם cache לשנה (immutable)</td></tr>
+    <tr><td><code>/does-not-exist</code></td><td>404</td><td>דף ה-404 הגנרי של Netlify באנגלית (<code>lang="en"</code>)</td></tr>
+    <tr><td>wa.me, tel:, mailto:</td><td>200 / –</td><td>הקישורים החיצוניים תקינים</td></tr>
+  </table>
+  <p class="ev">שיטה: Screaming Frog לא זמין בסביבה הזו, ולכן הסריקה נעשתה עם curl ופרסר HTML (העמוד, כל הנכסים והקישורים). ה-API של PageSpeed Insights החזיר שגיאת מכסה (429), ולכן Lighthouse 12.6.1, המנוע ש-PSI מריץ, הורץ מקומית 3 פעמים בפרופיל מובייל. התוצאות יכולות להיות שונות מעט מאלה של PSI.</p>
+  <div class="shots">
+    <figure><img src="screenshots/02-placeholder-photo.png"><figcaption>02: משבצת תמונה ריקה בסעיף "נעים מאוד"</figcaption></figure>
+    <figure><img src="screenshots/03-placeholder-testimonials.png"><figcaption>03: סעיף ההמלצות עם placeholders</figcaption></figure>
+    <figure><img src="screenshots/04-faq-price.png"><figcaption>04: מחיר בשאלות הנפוצות (סותר את llms.txt)</figcaption></figure>
+    <figure><img src="screenshots/05-404-default.png"><figcaption>05: דף 404 גנרי באנגלית</figcaption></figure>
+    <figure><img src="screenshots/06-robots.png"><figcaption>06: robots.txt</figcaption></figure>
+    <figure><img src="screenshots/07-sitemap.png"><figcaption>07: sitemap עם כתובת אחת</figcaption></figure>
+  </div>
+  <figure style="margin:8px 0 0"><img src="screenshots/08-lighthouse-mobile.png" style="width:100%"><figcaption class="ev">08: Lighthouse במובייל, הרצה 3 (ביצועים 88, FCP/LCP 3.0 שנ׳)</figcaption></figure>
+</section>
+</body>
+</html>
