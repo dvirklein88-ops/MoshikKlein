@@ -65,6 +65,56 @@
   window.addEventListener('resize', onScroll);
   onScroll();
 
+  /* ---------- Headings: words rise in one by one ----------
+     Only text nodes are split, so inner markup (<em>, <a>, <br>) and the text order stay intact.
+     The heading keeps its full text as its accessible name; the word spans are hidden from
+     assistive tech so the heading is read as one phrase, not word by word. */
+  function splitWords(el) {
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    var texts = [];
+    while (walker.nextNode()) texts.push(walker.currentNode);
+    var plain = !el.querySelector('a, button, input, [tabindex]');
+    var n = 0;
+    texts.forEach(function (t) {
+      if (!t.nodeValue.trim()) return;
+      var frag = document.createDocumentFragment();
+      t.nodeValue.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var s = document.createElement('span');
+        s.className = 'wd';
+        s.style.setProperty('--w', Math.min(n++, 12));
+        if (plain) s.setAttribute('aria-hidden', 'true');
+        s.textContent = part;
+        frag.appendChild(s);
+      });
+      t.parentNode.replaceChild(frag, t);
+    });
+    if (plain && !el.hasAttribute('aria-label')) el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+    el.classList.add('words');
+  }
+  if (!reduce) {
+    var heads = Array.prototype.filter.call(document.querySelectorAll('h1, h2'), function (h) {
+      return !h.classList.contains('visually-hidden');
+    });
+    heads.forEach(splitWords);
+    var h1s = heads.filter(function (h) { return h.tagName === 'H1'; });
+    var h2s = heads.filter(function (h) { return h.tagName === 'H2'; });
+    h1s.forEach(function (h) { h.classList.add('go'); });
+    if ('IntersectionObserver' in window) {
+      var hio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add('go');
+          hio.unobserve(en.target);
+        });
+      }, { threshold: 0.3, rootMargin: '0px 0px -6% 0px' });
+      h2s.forEach(function (h) { hio.observe(h); });
+    } else {
+      h2s.forEach(function (h) { h.classList.add('go'); });
+    }
+  }
+
   /* ---------- Reveal on scroll (hidden state only exists when JS runs) ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if (!reduce && 'IntersectionObserver' in window) {
