@@ -219,13 +219,8 @@ h1 em { font-style: normal; color: #6B4E1E; }
 .about-text p + p { margin-top: 12px; }
 .about-text .pill { margin-top: 28px; }
 
-/* Placeholders (to be replaced with real images) */
-.ph {
-  display: grid; place-items: center; text-align: center; padding: 20px;
-  border: 1.5px dashed rgba(30, 26, 22, .28); border-radius: var(--r-card);
-  color: var(--ink-2); font-size: 15px; background: rgba(255, 255, 255, .35);
-}
-.ph-photo { aspect-ratio: 4 / 3; width: 100%; }
+.about-photo { display: block; width: 100%; max-width: 512px; justify-self: center; }
+.about-photo img { display: block; width: 100%; max-width: 100%; height: auto; object-fit: cover; border-radius: var(--r-card); }
 
 /* Parents */
 .parents {
