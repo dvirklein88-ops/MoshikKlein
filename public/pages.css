@@ -47,14 +47,6 @@
   width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
 }
 
-/* Price line */
-.price {
-  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
-  padding: 18px 22px; border-radius: var(--r-card); background: var(--ground-2);
-}
-.price b { font: 700 clamp(26px, 3.2vw, 36px)/1.15 var(--display); color: var(--ink); }
-.price span { color: var(--ink-2); }
-
 /* Reused home components inside articles */
 .article .track-grid { margin-top: 6px; }
 .article .track { min-height: 0; }

@@ -21,7 +21,7 @@ A single, personal teacher with 20+ years of experience who connects kids to Tor
 - Frontal in Modiin–Maccabim–Re'ut; Zoom from anywhere. Teaches secular families too.
 - Contact: 054-4447068 (tel/WhatsApp use 972544447068), moshikklein@gmail.com. Netlify Forms contact form (name, phone required; date/parasha, message optional; honeypot).
 - Static HTML/CSS/JS, published from `public/` on Netlify. Hebrew, RTL.
-- Price: 500 ILS/month (125 per lesson, one lesson a week), shown in the FAQ. Undecided: domain, intro lesson (not offered on site).
+- Price: not shown anywhere on the site (removed at client request). One lesson a week. Undecided: domain, intro lesson (not offered on site).
 
 ## Brand Commitments
 - Name: מושיק קליין. Approved approach copy: "ליווי חם שמכבד את הבית שלכם, את הקצב של הילד ואת המסורת של המשפחה" + "מחברים לעולם התורה בטבעיות ובקצב של הילד". The phrase "בלי לחץ ובלי דרשות" was dropped at the owner's request (2026-10-28).
