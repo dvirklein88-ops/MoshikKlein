@@ -1,6 +1,6 @@
 ---
 name: website-workflow
-description: Build professional websites for small businesses through a linear, approval-based workflow using Claude Code, GitHub, and Netlify. Use for landing pages, service websites, portfolio sites, and business websites.
+description: Build professional websites for small businesses through a linear, approval-based workflow using Claude Code, GitHub, a self-hosted n8n deployment pipeline with Telegram approval, and the Netlify API, with optional client-specific analytics (Meta Pixel, Microsoft Clarity, Google Tag Manager). Use for landing pages, service websites, portfolio sites, and business websites.
 ---
 
 # Website Workflow
@@ -13,11 +13,13 @@ Follow a linear workflow. Complete and verify each phase before moving to the ne
 
 Default workflow:
 
-Claude Code → GitHub → Netlify
+Claude Code → GitHub → n8n (push webhook + Telegram approval) → Netlify API → live website
 
-- Claude Code: development and implementation.
+- Claude Code: development, local testing, and implementation.
 - GitHub: source-code repository and version history.
-- Netlify: hosting, deployment, preview deployments, and form handling when suitable.
+- n8n (self-hosted): receives the GitHub push webhook, requests deployment approval through Telegram, and orchestrates the deployment.
+- Netlify: hosts the website. Deployment is performed by n8n through the Netlify API (file-digest method) for static website files.
+- Netlify Git continuous deployment is NOT part of the default setup, and no conventional Netlify build step is run.
 - GitHub Pages is NOT part of the default deployment workflow.
 - Do not deploy the same website to multiple hosting providers without a specific reason.
 - Do not introduce additional services or infrastructure unless the project requires them.
@@ -37,12 +39,16 @@ This skill must work for different industries, languages, website types, and cli
 9. Prioritize mobile usability, accessibility, speed, and clarity.
 10. Protect credentials, private information, and customer submissions.
 11. Never commit secrets, passwords, API keys, access tokens, or .env files.
-12. Get explicit approval before publishing publicly, changing DNS, purchasing services, or taking other externally visible or potentially costly actions.
+12. Get explicit approval before publishing publicly, changing DNS, purchasing services, activating tracking, or taking other externally visible or potentially costly actions.
 13. Verify every important feature before claiming it works.
 14. Keep the implementation as simple as possible while meeting the requirements.
 15. Check current official documentation and pricing before relying on provider features or free-tier limits.
 16. Do not claim that a service is free forever.
 17. Maintain a PROJECT_NOTES.md file with decisions, progress, outstanding issues, and the next step. Never include secrets in it.
+18. Every client has separate analytics accounts, tracking IDs, and data. Never assume a tracking ID, never reuse an ID from another client or project, and never invent IDs.
+19. Analytics and tracking are optional and require the client's approval. Install only the tools the client has approved and for which a valid client-owned ID exists.
+20. Do not ask clients for account passwords. Clients own their accounts and data; request appropriate access permissions instead.
+21. Do not bypass or replace the n8n deployment and Telegram approval process. A GitHub push is not the same as a live website.
 
 # Phase 0 — Inspect the Project
 
@@ -108,6 +114,37 @@ Do not assume every project needs every feature.
 
 Ask only the questions necessary to define the project. If multiple independent details are missing, group the questions into a short, organized request.
 
+## Analytics and tracking questions
+
+Ask in simple, non-technical language, and explain each tool briefly only when needed:
+
+1. Do you currently advertise on Facebook or Instagram, or plan to do so? (Relevant to Meta Pixel, which measures ad conversions and leads.)
+2. Do you want to measure advertising conversions and leads?
+3. Do you want to understand how visitors use your website through heatmaps and session recordings? (Microsoft Clarity.)
+4. Do you already have a Meta Pixel?
+5. Do you already have a Microsoft Clarity project?
+6. Do you want Google Tag Manager, or should we keep the setup simple?
+
+Defaults:
+
+- Meta Pixel: recommend when the client runs or plans Meta advertising and approves tracking.
+- Microsoft Clarity: recommend when the client wants website behavior insights and approves tracking.
+- Google Tag Manager: optional only. Do not introduce it by default.
+- Google Analytics 4: not added by default.
+- No tracking integration when the client does not need or approve it.
+
+Do not install every tool automatically.
+
+Collect the following values only when relevant:
+
+- Meta Pixel ID.
+- Microsoft Clarity Project ID.
+- Google Tag Manager Container ID, only if explicitly requested.
+
+The client owns the accounts and the tracking data. Access permissions may be granted to the developer, but never ask the client to send account passwords. Never reuse a tracking ID from another client.
+
+If the client has no account or ID yet: explain what they need to create, provide the official setup instructions, offer to guide them, and continue building the website without that integration until the ID is available. Do not invent IDs or insert placeholder tracking scripts.
+
 Create a requirements summary containing:
 
 1. Confirmed facts.
@@ -118,6 +155,7 @@ Create a requirements summary containing:
 6. Missing information.
 7. Assumptions requiring approval.
 8. Success criteria.
+9. Analytics decision: which tools are approved, which are declined or not needed, confirmed IDs, and pending client actions.
 
 Present the summary to the user and request corrections or approval before substantial implementation.
 
@@ -190,9 +228,10 @@ Include:
 7. Responsive layout strategy.
 8. Accessibility considerations.
 9. SEO requirements.
-10. Hosting and deployment plan.
+10. Hosting and deployment plan (Claude Code → GitHub → n8n → Netlify API), including the static publish directory and whether a local build is required.
 11. Form and notification strategy.
 12. Any external integrations or expected costs.
+13. Analytics and tracking plan: approved tools, event plan, and consent approach.
 
 ## Technology selection
 
@@ -207,37 +246,46 @@ For a small, mostly static business website:
 
 Do not introduce a complex stack merely because it is fashionable.
 
+Deployment publishes static files only. Prefer technology whose output is plain static files. If a framework requires a build step, the build is performed locally and the resulting output must be committed (see Phase 7).
+
 ## Default hosting architecture
 
 Use:
 
-Claude Code → GitHub → Netlify
+Claude Code → GitHub → n8n → Netlify API
 
-GitHub is the source-code repository. Netlify is the primary deployment and hosting provider.
+- GitHub is the source-code repository.
+- n8n (self-hosted) controls deployment orchestration and approval: it receives the GitHub push webhook, checks that the repository is registered, and requests approval through Telegram.
+- Netlify hosts the website. n8n deploys to it through the Netlify API using the file-digest method.
+- Netlify Git continuous deployment is not part of the default setup, and Netlify does not run a build step.
 
 The normal workflow is:
 
 1. Develop locally.
-2. Test locally.
+2. Test locally (including running any required build locally).
 3. Commit and push changes to GitHub.
-4. Let Netlify build and deploy from the connected repository.
-5. Review the preview deployment.
-6. Publish to production after approval.
+4. n8n receives the push webhook and asks for deployment approval through Telegram.
+5. After approval, n8n deploys to Netlify through the API and reports the result through Telegram.
+6. Verify the live website after the user confirms the deployment result.
 
-Do not routinely deploy to GitHub Pages before deploying to Netlify. This duplicates work and can cause confusion about the official website URL.
+Do not connect GitHub directly to Netlify and do not create any second deployment mechanism.
+
+Do not routinely deploy to GitHub Pages. This duplicates work and can cause confusion about the official website URL.
 
 GitHub Pages is not the default host for commercial client websites. Check its current terms and limitations if someone specifically requests it.
 
+Reference for the deployment API: https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/
+
 ## Netlify and forms
 
-For a simple contact form, Netlify Forms may be suitable.
+For a simple contact form, Netlify Forms may be suitable. The n8n deployment configures Netlify Forms email hooks where applicable.
 
 Before choosing it:
 
 1. Review the current official Netlify documentation.
 2. Check current pricing, usage limits, and relevant plan requirements.
 3. Confirm the required email notification behavior.
-4. Confirm whether the form implementation is compatible with Netlify's form detection.
+4. Confirm whether the form implementation is compatible with Netlify's form detection. Because there is no Netlify build step, forms must be detectable in the static HTML that is actually deployed.
 
 If requirements exceed the built-in solution, compare appropriate form providers or server-side options.
 
@@ -299,6 +347,77 @@ When requested:
 - Do not claim email notifications are configured until they have been tested.
 - Do not collect payment-card information through a basic contact form.
 
+## Analytics and Tracking Integration
+
+Implement only the tools the client has approved and for which the client has provided a valid ID. The implementation must be simple, centralized, maintainable, and client-specific. If no tool is approved, add no tracking code.
+
+When implementing or changing provider-specific code, use current official documentation rather than outdated snippets from blogs. If a provider's instructions have changed, follow the current official instructions rather than this skill.
+
+- Microsoft Clarity: https://learn.microsoft.com/en-us/clarity/
+- Meta Pixel: the official Meta Business Help Center or Meta for Developers documentation.
+
+### Configuration
+
+- Create one centralized analytics configuration appropriate to the project's existing architecture (for example a single config file or a single clearly marked block).
+- Keep tracking IDs separate from website content and ordinary UI components.
+- Use clear names such as META_PIXEL_ID, CLARITY_PROJECT_ID, and GTM_CONTAINER_ID, adapted to the project's actual configuration approach.
+- Do not introduce a build system, dependency, database, or backend merely to store these IDs.
+- For a static website, public tracking IDs may be included in client-side code when the provider requires it.
+- Never place secret API tokens, passwords, or private credentials in client-side code.
+
+### Meta Pixel
+
+When the client approves Meta Pixel and provides a valid ID:
+
+- Install the official Meta Pixel base code following current official instructions.
+- Ensure the correct client Pixel ID is used and avoid duplicate installations.
+- Implement standard events only when the website supports them:
+  - PageView: page loaded.
+  - Contact: an actual contact action, such as clicking a WhatsApp or telephone link.
+  - Lead: a successfully submitted contact form.
+  - Purchase: only if the website actually supports purchases.
+- Do not fire Lead merely because someone clicked a contact button.
+- Do not send names, email addresses, phone numbers, form contents, or other personal information as event parameters.
+- Do not invent event behavior that the website does not support.
+- Verify installation with Meta's official testing tools when access is available.
+
+### Microsoft Clarity
+
+When the client approves Clarity and provides a valid Project ID:
+
+- Install the official Clarity tracking code following current Microsoft documentation.
+- Ensure the correct client Project ID is used and avoid duplicate installations.
+- Verify that the script loads and, when access is available, that data collection is confirmed.
+- Pay attention to consent requirements and Clarity privacy and masking settings.
+- Do not install Clarity on websites targeting users under 18.
+
+### Google Tag Manager
+
+Do not install GTM by default. Install it only when the client explicitly requests it, or when a clear technical requirement justifies it.
+
+If GTM is requested:
+
+- Obtain the correct container ID.
+- Explain that GTM is a tag-management system, not an analytics tool by itself.
+- Avoid installing the same Meta Pixel or Clarity tag both directly and through GTM. Each tag has exactly one authoritative installation method.
+- Document which tags are managed through GTM.
+
+### Consent and privacy
+
+Installing a tracking script does not by itself make a website legally compliant.
+
+Before enabling tracking:
+
+- Identify whether a consent mechanism is required for the website's intended audience and applicable jurisdictions.
+- Check current official documentation from the relevant providers.
+- Ask the client to approve the consent approach.
+- If a consent banner or consent-management platform is needed, explain the implementation and any costs before adding it.
+- Ensure tracking behavior respects the selected consent state, and do not activate tracking before consent where consent is required.
+- Do not claim legal compliance without an appropriate review.
+- Do not build a complicated consent-management system unnecessarily.
+
+If the requirements are unclear, stop and ask for clarification rather than making legal assumptions.
+
 ## Maintainability
 
 - Keep the code readable and organized.
@@ -315,7 +434,7 @@ Exit condition: The site implements the approved scope and runs locally.
 
 Inspect the project's actual scripts and documentation before running commands. Do not invent commands or assume a framework.
 
-Run the appropriate build, lint, and test commands where available.
+Run the appropriate build, lint, and test commands where available. If the project needs a build, run it locally and confirm the publish directory contains the complete deployable static output, because no build runs during deployment.
 
 Test the following:
 
@@ -369,6 +488,21 @@ Check:
 - Loading behavior.
 - Appropriate indexing settings for the intended environment.
 
+## Analytics (when any tracking is approved)
+
+Check:
+
+- The correct client's tracking IDs are configured.
+- No tracking script is duplicated, including via both direct installation and GTM.
+- No placeholder IDs remain.
+- PageView behavior is implemented correctly.
+- Contact events fire only on actual contact actions.
+- Lead events fire only after a successful form submission.
+- Events do not fire multiple times unintentionally.
+- Personal information is not sent as event parameters.
+- Consent behavior works as intended, where applicable, and nothing fires before consent where consent is required.
+- If no tracking is approved, no tracking code is present.
+
 ## Content and security
 
 Check:
@@ -420,28 +554,36 @@ If authorization is unavailable, stop and provide exact manual steps.
 
 Exit condition: The code is safely committed and pushed to the correct repository.
 
-# Phase 7 — Connect GitHub to Netlify
+# Phase 7 — Prepare GitHub Push and n8n Deployment
 
-Before connecting accounts, confirm which Netlify account or team should own the website.
+Deployment is handled by the existing self-hosted n8n system, not by Netlify's Git integration. n8n receives the GitHub push webhook, checks that the repository is registered, requests approval through Telegram, downloads the website files from GitHub, reads netlify.toml when available to determine the publish directory, deploys through the Netlify API using the file-digest method, waits for the deployment to become ready, configures Netlify Forms email hooks where applicable, checks that the public site is reachable, and reports the result through Telegram.
 
-Then:
+Your responsibilities:
 
-1. Review current official Netlify documentation.
-2. Connect the approved GitHub repository.
-3. Determine the correct build command and publish directory from the actual project.
-4. Configure environment variables through Netlify settings when needed.
-5. Never expose secrets in browser-side code.
-6. Trigger a preview or deployment.
-7. Inspect the build logs.
-8. Resolve build failures before proceeding.
-9. Open the deployed preview and repeat key functional and visual checks.
-10. Confirm the preview does not expose secrets or private information.
+1. Develop and test the website locally.
+2. Identify the correct static publish directory (and, when useful, declare it in netlify.toml).
+3. Make sure the project contains the complete deployable output.
+4. Perform any required build locally before deployment. No build runs on Netlify or in n8n.
+5. Commit the final deployable files and push them to the approved GitHub repository and branch.
+6. Remember that the existing n8n system handles deployment after receiving the push webhook.
+7. Remember that deployment requires the existing Telegram approval process.
+8. Do not attempt to connect GitHub directly to Netlify.
+9. Do not create a second deployment mechanism.
+10. Do not assume that pushing to GitHub makes the website live.
+11. Wait for the user to confirm the n8n deployment result before claiming that production deployment succeeded.
+12. If deployment fails, inspect the reported error and help resolve it without bypassing the approval process.
+
+Also confirm:
+
+- The repository is registered with the n8n deployment system. If it is not, tell the user; do not modify n8n workflows or create integrations.
+- Which Netlify site and account the website deploys to.
+- Environment variables or secrets are never stored in the repository or exposed in browser-side code.
 
 Do not connect a custom domain or change DNS without explicit approval.
 
 Do not promise that a plan or feature is free without checking current official pricing and limits.
 
-Exit condition: A preview deployment builds successfully and is ready for review.
+Exit condition: The deployable files are pushed to the correct repository and branch, and the user has confirmed the n8n deployment result (or the failure has been diagnosed and documented).
 
 # Phase 8 — Configure Forms and Email Notifications
 
@@ -450,10 +592,10 @@ If the website includes a contact form:
 1. Confirm the destination email address with the client.
 2. Choose the appropriate form handling service.
 3. Check current official documentation and plan limitations.
-4. Configure form detection and email notifications.
+4. Confirm form detection requirements and how email notifications are configured. The n8n deployment configures Netlify Forms email hooks where applicable; do not set up a separate mechanism.
 5. Ensure the form markup matches the provider's requirements.
-6. If using Netlify Forms with a client-rendered framework, check whether a static HTML form declaration or another documented configuration is required.
-7. Deploy the configuration.
+6. If using Netlify Forms with a client-rendered framework, check whether a static HTML form declaration or another documented configuration is required, since no Netlify build step runs.
+7. Deploy the configuration through the normal GitHub push and n8n Telegram approval process (Phase 7).
 8. Submit a real test message.
 9. Verify that the submission appears in the provider dashboard when supported.
 10. Verify that the notification email actually arrives.
@@ -477,7 +619,8 @@ Exit condition: Form submission and notification delivery have been verified, or
 Before production launch, provide a concise review:
 
 - What is complete.
-- Preview URL.
+- Local test results and the publish directory that will be deployed.
+- Deployed URL, if one exists.
 - Outstanding issues.
 - Any remaining placeholders.
 - Form test results.
@@ -486,6 +629,16 @@ Before production launch, provide a concise review:
 - Any privacy or legal text requiring client review.
 - Actions that will make the website publicly available.
 
+Analytics and tracking review:
+
+- Which tracking tools are installed.
+- Which tools were intentionally not installed.
+- Which events are implemented.
+- Whether consent handling is configured.
+- What has been tested.
+- What still requires client action.
+- Whether the client has approved tracking.
+
 Get explicit approval before:
 
 - Publishing the production site when approval has not already been granted.
@@ -493,23 +646,35 @@ Get explicit approval before:
 - Changing DNS.
 - Enabling paid services.
 - Sending real customer communications.
-- Adding unapproved analytics or tracking.
+- Activating analytics or tracking the client has not approved.
 - Making destructive changes.
+
+Do not activate unapproved tracking. Do not enable paid tools or services without explicit approval.
 
 After approval:
 
-1. Deploy to production.
-2. Configure the custom domain only if requested and approved.
-3. Follow the domain provider's and host's current official instructions.
-4. Verify HTTPS/SSL.
-5. Verify redirects and the canonical host.
-6. Test the main CTA.
-7. Test the form again on the production URL.
-8. Check mobile and desktop layouts.
-9. Ensure no preview-only content or placeholders remain.
-10. Record the final URL and verification results.
+1. Push to the approved GitHub repository and branch, and let the n8n workflow request Telegram approval and deploy through the Netlify API (Phase 7).
+2. Wait for the user to confirm the deployment result.
+3. Configure the custom domain only if requested and approved.
+4. Follow the domain provider's and host's current official instructions.
+5. Verify HTTPS/SSL.
+6. Verify redirects and the canonical host.
+7. Test the main CTA.
+8. Test the form again on the production URL.
+9. Check mobile and desktop layouts.
+10. Ensure no preview-only content or placeholders remain.
+11. Record the final URL and verification results.
 
-Do not report production launch as successful until the live URL has been checked.
+Do not report production launch as successful until the user has confirmed the n8n deployment result and the live URL has been checked.
+
+## Analytics verification after deployment
+
+- Verify that the production HTML or runtime loads the expected scripts and that the correct client IDs are present.
+- Use Meta's official testing tools when available.
+- Use Microsoft Clarity's verification process when available.
+- Distinguish between code-level verification and confirmation that data is actually appearing in the provider dashboard.
+- Never claim analytics is fully operational unless it has been verified.
+- If dashboard access is unavailable, state clearly what was verified and what the client still needs to check.
 
 ## Search Console verification (agent)
 
@@ -520,9 +685,9 @@ Run this after the production URL is live, and only with the owner's approval. L
    - **Pasted by the owner:** if the browser is not available, take the value the owner pastes. If the owner pastes the full tag, extract only the content value.
    If Chrome needs a sign-in, a 2FA code or a local session, ask the owner to open that session on their computer. Never enter passwords or codes on the owner's behalf. Do not invent or guess a token.
 2. **Validate it.** The token is a non-empty string of letters, digits, `-` and `_`. Stop and ask if it does not match.
-3. **Add it to the site.** Put the tag once, in `<head>` of `public/index.html`, next to the robots meta. Never duplicate it. If a different verification tag is already there, stop and ask whether to keep it.
-4. **Test locally.** Confirm the tag appears exactly once in `<head>`, and run `grep -c google-site-verification public/index.html`.
-5. **Confirm it is live.** After deploy, fetch the production URL and confirm the tag appears in the served HTML, not just in the repository.
+3. **Add it to the site.** Put the tag once, in `<head>` of the site's main HTML file (for example `public/index.html`; use the project's actual publish directory), next to the robots meta. Never duplicate it. If a different verification tag is already there, stop and ask whether to keep it.
+4. **Test locally.** Confirm the tag appears exactly once in `<head>`, and run `grep -c google-site-verification <path-to-main-html>`.
+5. **Confirm it is live.** Push the change and wait for the n8n Telegram approval and deployment result (Phase 7). Then fetch the production URL and confirm the tag appears in the served HTML, not just in the repository.
 6. **Click Verify.** If Chrome is open on the owner's account in Search Console, the agent clicks Verify there and reads the result. If Chrome is not signed in to that account, ask the owner for a local session, as in step 1. If neither is possible, ask the owner to click Verify and report the result.
 7. **Keep the tag.** Do not remove it after verification, or the verification may lapse.
 8. **Run the checks.** Confirm that `https://<site>/sitemap.xml` and `https://<site>/robots.txt` return 200, that the sitemap lists the production URLs, and that robots.txt does not block them. Record the results in `PROJECT_NOTES.md`.
@@ -534,9 +699,10 @@ Report the tag location, the live-check result, and the sitemap and robots resul
 Provide a practical handover containing:
 
 - Production URL.
-- Preview URL, if still useful.
 - GitHub repository URL and owner.
 - Netlify site and account/team owner.
+- Deployment method (n8n + Netlify API), publish directory, and whether a local build is required.
+- Analytics tools installed, the client-owned accounts they belong to, and outstanding client actions.
 - How to edit text, images, services, and prices.
 - How to make and deploy changes.
 - Where form submissions and notification settings are managed.
@@ -551,11 +717,12 @@ Never include passwords, tokens, API keys, or private form submissions.
 
 Explain the normal update process:
 
-1. Edit the site locally.
-2. Test changes.
+1. Edit the website locally.
+2. Test the changes.
 3. Commit and push to GitHub.
-4. Check the Netlify build/deployment.
-5. Verify the live site when appropriate.
+4. Wait for the n8n Telegram deployment approval.
+5. Confirm the deployment result.
+6. Verify the live website when appropriate.
 
 # PROJECT_NOTES.md
 
@@ -567,15 +734,32 @@ Maintain a concise PROJECT_NOTES.md file with:
 - Confirmed content and assets.
 - Missing content.
 - Local development and build commands.
-- GitHub repository owner and URL.
-- Hosting provider and site URL.
+- GitHub repository owner, URL, and deployment branch.
+- Netlify site and account/team.
+- Deployment method: n8n + Netlify API.
+- Publish directory.
+- Whether a local build is required.
+- Deployment status and last verified production URL.
 - Form/integration status.
 - Approval checkpoints.
 - Open issues.
 - Next action.
 - Date of last verification.
 
-Never store secrets or credentials in PROJECT_NOTES.md.
+## Analytics section
+
+- Meta Pixel: installed / not installed / pending.
+- Meta Pixel ID, if configured.
+- Clarity: installed / not installed / pending.
+- Clarity Project ID, if configured.
+- GTM: installed / not installed / not requested.
+- Events implemented.
+- Consent mechanism and status.
+- Tests performed.
+- Dashboard verification status.
+- Outstanding client actions.
+
+Tracking IDs are configuration identifiers and may be recorded. Never store passwords, access tokens, API secrets, private customer information, or form submissions in PROJECT_NOTES.md.
 
 At the end of each phase, update the notes and report:
 
@@ -595,7 +779,9 @@ Stop and ask for clarification or approval if:
 - A task could incur a cost.
 - A production-facing or destructive action requires approval.
 - A feature requires collecting sensitive data.
-- Legal, privacy, or compliance requirements are uncertain.
+- Legal, privacy, or compliance requirements are uncertain, including whether consent is required for tracking.
+- A tracking ID is missing, unverified, or appears to belong to another client or project.
+- The repository is not registered with the n8n deployment system, or the n8n deployment fails in a way that cannot be resolved without bypassing the approval process.
 - A provider's plan limits make the current approach unsuitable.
 - The implementation would require a materially more complex architecture than originally agreed.
 
