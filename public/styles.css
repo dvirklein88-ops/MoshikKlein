@@ -17,6 +17,8 @@
   --line-night: rgba(243, 238, 232, .14);
   --err: #A3291F;
   --ok: #2E6B45;
+  --wa: #25D366;
+  --wa-hover: #1EBE5A;
 
   --display: "Rubik", "Heebo", "Arial Hebrew", system-ui, sans-serif;
   --sans: "Heebo", "Arial Hebrew", system-ui, sans-serif;
@@ -53,6 +55,11 @@ button, input, textarea { font: inherit; color: inherit; }
 
 .wrap { width: 100%; max-width: 1320px; margin-inline: auto; padding-inline: var(--gutter); }
 .ico { width: 18px; height: 18px; flex: none; }
+/* WhatsApp icon inside a pill: green badge around the glyph */
+.pill[data-wa] .ico {
+  width: 30px; height: 30px; padding: 6px; margin-inline-start: -12px;
+  border-radius: 50%; background: var(--wa); color: #fff;
+}
 
 .skip-link {
   position: absolute; inset-inline-start: 12px; top: -60px; z-index: 50;
@@ -283,6 +290,7 @@ h1 em { font-style: normal; color: #6B4E1E; }
 }
 .direct a:hover { border-bottom-color: currentColor; }
 .direct .ico { width: 20px; height: 20px; }
+.direct a[data-wa] .ico { color: var(--wa); }
 
 .form { display: grid; gap: 16px; align-content: start; }
 .field label { display: block; font-weight: 500; font-size: 15px; margin-bottom: 6px; }
@@ -332,12 +340,12 @@ h1 em { font-style: normal; color: #6B4E1E; }
 .wa-float {
   position: fixed; inset-inline-end: 24px; bottom: 24px; z-index: 15;
   display: none; place-items: center; width: 58px; height: 58px; border-radius: 50%;
-  background: var(--gold); color: var(--gold-ink);
+  background: var(--wa); color: #fff;
   box-shadow: 0 10px 28px -8px rgba(30, 26, 22, .45);
   transition: transform .5s var(--ease-out);
 }
 .wa-float svg { width: 28px; height: 28px; }
-@media (hover: hover) { .wa-float:hover { transform: translateY(-3px); } }
+@media (hover: hover) { .wa-float:hover { transform: translateY(-3px); background: var(--wa-hover); } }
 .wa-float:active { transform: scale(.95); }
 .mobile-bar {
   position: fixed; inset-inline: 0; bottom: 0; z-index: 15;
