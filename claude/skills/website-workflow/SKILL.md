@@ -573,9 +573,22 @@ Your responsibilities:
 11. Wait for the user to confirm the n8n deployment result before claiming that production deployment succeeded.
 12. If deployment fails, inspect the reported error and help resolve it without bypassing the approval process.
 
+## How the n8n deployer behaves (design the project around it)
+
+- **Registration:** only registered repositories deploy. The user registers a repository through the Telegram bot (`/addrepo`), which creates the GitHub webhook and stores the repository and branch. If the repository is not registered, tell the user; do not register it, create webhooks, or modify n8n workflows.
+- **Branch:** only pushes to the registered branch (or the repository's default branch if none was saved) trigger the flow. Pushes to other branches are silently ignored.
+- **Account and site:** on the first deployment the bot asks which Netlify account to use and creates a site named after the repository, served at `*.netlify.app`. Later deployments update that site. Confirm the intended account and site name with the user.
+- **Publish directory:** only `publish` from the `[build]` section of `netlify.toml` is read. Without it, the repository root is published. Everything outside the publish directory is not deployed.
+- **Excluded files:** files and folders starting with `.` (any path containing `/.`), `node_modules`, and `README.md` are not deployed. Never rely on them being live.
+- **No build, static only:** no build step runs and Netlify Functions are not supported. Redirects and headers from `netlify.toml` are NOT applied. Use `_redirects` and `_headers` files inside the publish directory instead.
+- **Credits:** every deployment consumes Netlify credits and the bot reports usage. Batch changes into a single push, and do not push experimental or test commits to the registered branch.
+- **Forms:** the deployer enables Netlify form detection and adds an email notification for each form (see Phase 8).
+- **Failure modes:** if n8n or its tunnel is down, pushes are lost with no alert. If no Telegram approval prompt arrives after a push, tell the user to check n8n and the tunnel, or to trigger the deployment manually from the bot (`/deploy`). Do not push empty commits to force it.
+- **Result message:** the Telegram result reports the site URL, number of files uploaded, forms and notification email, and a warning if the site is private. For new sites it reminds the user to remove the "Powered by Netlify" badge manually in the Netlify UI (Project configuration → General), since no API exists for it.
+
 Also confirm:
 
-- The repository is registered with the n8n deployment system. If it is not, tell the user; do not modify n8n workflows or create integrations.
+- The repository is registered with the n8n deployment system.
 - Which Netlify site and account the website deploys to.
 - Environment variables or secrets are never stored in the repository or exposed in browser-side code.
 
@@ -589,7 +602,7 @@ Exit condition: The deployable files are pushed to the correct repository and br
 
 If the website includes a contact form:
 
-1. Confirm the destination email address with the client.
+1. Confirm the destination email address with the client. The n8n deployer sends form notifications only to the email of the owner of the Netlify account. If the client needs a different address, tell the user it must be changed manually in the Netlify UI; do not configure a separate mechanism.
 2. Choose the appropriate form handling service.
 3. Check current official documentation and plan limitations.
 4. Confirm form detection requirements and how email notifications are configured. The n8n deployment configures Netlify Forms email hooks where applicable; do not set up a separate mechanism.
@@ -739,6 +752,8 @@ Maintain a concise PROJECT_NOTES.md file with:
 - Deployment method: n8n + Netlify API.
 - Publish directory.
 - Whether a local build is required.
+- Registration status in the n8n deployer and the registered branch.
+- Netlify credit usage noted in deployment results.
 - Deployment status and last verified production URL.
 - Form/integration status.
 - Approval checkpoints.
