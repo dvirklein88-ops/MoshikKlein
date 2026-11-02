@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-25T22:50:47.643Z",
+        "reason": "user chose the mykin-style warm-stone sketch (option 3) after seeing it rendered"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-25T22:50:47.909Z",
+        "reason": "user chose option 3 sketch whose fact ticker was visible; mirrors mykin.ai reference the user named"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-25T22:52:45.504Z",
+        "reason": "static false positive: rendered h1 is clamp() up to 92px, h2 up to 60px, verified in Playwright screenshots"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-25T22:52:45.777Z",
+        "reason": "static false positive: panel insets live on children (.hero-copy/.about-panel/.contact-panel padding 24-88px) and FAQ summary has 22px block padding; verified in screenshots"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "drafts/option-1-leather.html"
+        ],
+        "createdAt": "2026-10-25T22:55:44.798Z",
+        "reason": "unchosen direction sketch kept for reference; not shipped (outside public/)"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "drafts/option-2-tikkun.html"
+        ],
+        "createdAt": "2026-10-25T22:55:45.072Z",
+        "reason": "unchosen direction sketch kept for reference; not shipped (outside public/)"
+      }
+    ]
+  }
+}

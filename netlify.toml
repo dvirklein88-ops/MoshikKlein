@@ -23,3 +23,20 @@
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[redirects]]
+  from = "/aliya-latora/"
+  to = "/hachana-lebar-mitzva/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/aliya-latora"
+  to = "/hachana-lebar-mitzva/"
+  status = 301
+  force = true
