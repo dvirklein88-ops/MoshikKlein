@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" role="img" aria-label="טבלת טעמי המקרא: אתנחתא, סוף פסוק, סגולתא, זקף גדול, רביע, מונח, טפחא ודרגא">
+<rect x="10" y="10" width="460" height="380" rx="28" fill="#F3EEE8"/>
+<rect x="358" y="52" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<path d="M388 109 L402 83 L416 109" stroke="#3A2A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="402" y="170" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">אתנחתא</text>
+<rect x="250" y="52" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<circle cx="294" cy="85" r="6" fill="#3A2A12"/><circle cx="294" cy="107" r="6" fill="#3A2A12"/>
+<text x="294" y="170" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">סוף פסוק</text>
+<rect x="142" y="52" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<circle cx="175" cy="88" r="5.5" fill="#3A2A12"/><circle cx="197" cy="88" r="5.5" fill="#3A2A12"/><circle cx="186" cy="107" r="5.5" fill="#3A2A12"/>
+<text x="186" y="170" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">סגולתא</text>
+<rect x="34" y="52" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<circle cx="84" cy="85" r="5.5" fill="#3A2A12"/><circle cx="84" cy="107" r="5.5" fill="#3A2A12"/><path d="M68 79 L68 113" stroke="#3A2A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="78" y="170" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">זקף גדול</text>
+<rect x="358" y="212" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<path d="M402 243 L413 256 L402 269 L391 256 Z" fill="#3A2A12"/>
+<text x="402" y="330" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">רביע</text>
+<rect x="250" y="212" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<path d="M284 241 L284 268 L308 268" stroke="#3A2A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="294" y="330" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">מונח</text>
+<rect x="142" y="212" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<path d="M200 242 Q184 254 180 272" stroke="#3A2A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="186" y="330" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">טפחא</text>
+<rect x="34" y="212" width="88" height="88" rx="20" fill="#FFFFFF" stroke="#CBBFB5" stroke-width="2.5"/>
+<path d="M90 241 L70 250 L86 260 L66 270" stroke="#3A2A12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<text x="78" y="330" text-anchor="middle" font-family="Noto Sans Hebrew, Arial Hebrew, Arial, sans-serif" font-size="17" fill="#5A5047" direction="rtl">דרגא</text>
+</svg>

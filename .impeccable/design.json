@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T00:00:00.000Z",
+  "title": "Design System: מושיק קליין – הכנה לבר מצווה",
+  "extensions": {
+    "colorMeta": {
+      "ground": { "role": "neutral", "displayName": "Stone Ground", "canonical": "#F3EEE8", "tonalRamp": ["#33302B", "#5A5751", "#7F7B76", "#A4A09B", "#C6C3BE", "#DEDBD6", "#EAE7E2", "#F3EEE8"] },
+      "ground-2": { "role": "neutral", "displayName": "Deep Stone", "canonical": "#EAE3DB", "tonalRamp": ["#3A342E", "#5E5850", "#837E75", "#A8A196", "#C9C2B8", "#DBD4CB", "#EAE3DB", "#F5F1EC"] },
+      "panel": { "role": "neutral", "displayName": "Taupe Panel", "canonical": "#CBBFB5", "tonalRamp": ["#3A322B", "#5C5249", "#7F746A", "#A39890", "#BDB2A9", "#CBBFB5", "#DCD3CB", "#EEE9E4"] },
+      "ink": { "role": "neutral", "displayName": "Warm Ink", "canonical": "#1E1A16", "tonalRamp": ["#1E1A16", "#3E3A36", "#5D5A56", "#7D7A76", "#9D9A97", "#BDBAB7", "#DCDAD7", "#FCFAF7"] },
+      "ink-2": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#5A5047", "tonalRamp": ["#1E1A16", "#3A322B", "#5A5047", "#776B61", "#958A81", "#B4AAA2", "#D2CAC4", "#EEEAE6"] },
+      "ink-on-panel": { "role": "neutral", "displayName": "Ink Brown", "canonical": "#3A322B", "tonalRamp": ["#1E1A16", "#2E2823", "#3A322B", "#554A42", "#72665D", "#94877E", "#B8ADA5", "#E2DCD7"] },
+      "gold": { "role": "primary", "displayName": "Action Gold", "canonical": "#DDB04F", "tonalRamp": ["#33250A", "#6E5420", "#A8803A", "#DDB04F", "#E7BE62", "#F1D9A0", "#F8EDD0", "#FFF6DC"] },
+      "gold-hover": { "role": "primary", "displayName": "Lit Gold", "canonical": "#E7BE62", "tonalRamp": ["#33250A", "#6E5420", "#A8803A", "#D9AC4E", "#E7BE62", "#F1D9A0", "#F8EDD0", "#FFF6DC"] },
+      "gold-ink": { "role": "primary", "displayName": "Gold Ink", "canonical": "#33250A", "tonalRamp": ["#1A1205", "#33250A", "#4D3A14", "#6E5420", "#8F7030", "#B3914F", "#D6BB84", "#F3E6C4"] },
+      "bronze": { "role": "secondary", "displayName": "Bronze Ink", "canonical": "#6B4E1E", "tonalRamp": ["#2A1E0C", "#473C2B", "#63594B", "#6B4E1E", "#9D958A", "#BAB3A9", "#D6D0C9", "#F3EEE8"] },
+      "night": { "role": "tertiary", "displayName": "Night Band", "canonical": "#1E1A16", "tonalRamp": ["#1E1A16", "#2A241F", "#3B342D", "#514840", "#6E655B", "#8E857B", "#B3AAA0", "#D9D2CA"] },
+      "on-night": { "role": "neutral", "displayName": "On-Night", "canonical": "#F3EEE8", "tonalRamp": ["#3E3A36", "#5D5A56", "#7D7A76", "#9D9A97", "#BDBAB7", "#DCDAD7", "#EAE7E2", "#F3EEE8"] },
+      "on-night-2": { "role": "neutral", "displayName": "Muted On-Night", "canonical": "#BDB2A6", "tonalRamp": ["#3A342E", "#5E5850", "#83796E", "#A29789", "#BDB2A6", "#CFC6BC", "#E0D9D0", "#F0EBE5"] },
+      "err": { "role": "status", "displayName": "Error Red", "canonical": "#A3291F", "tonalRamp": ["#4A0F09", "#632F29", "#7D4E4A", "#A3291F", "#AF8E8A", "#C8AEAA", "#E2CDCB", "#FBEDEB"] },
+      "ok": { "role": "status", "displayName": "Confirm Green", "canonical": "#2E6B45", "tonalRamp": ["#14301F", "#22492F", "#2E6B45", "#3F7F58", "#5F9A78", "#8BB59C", "#BCD5C6", "#E6F0EA"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The hero headline only. Light Hebrew serif, right-aligned, balanced wrapping." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles on serif (learn, tracks, how, about, FAQ, contact)." },
+      "quote": { "displayName": "Quote", "purpose": "The approach statement; lit word by word on scroll." },
+      "title": { "displayName": "Title", "purpose": "Short sans titles: track names and step titles." },
+      "body": { "displayName": "Body", "purpose": "Reading text; lead is 18px, 20px from 900px." }
+    },
+    "shadows": [
+      { "name": "floating-lift", "value": "0 10px 28px -8px rgba(30, 26, 22, 0.45)", "purpose": "Floating WhatsApp button only (desktop, 900px+)." },
+      { "name": "field-focus-ring", "value": "0 0 0 3px rgba(30, 26, 22, 0.12)", "purpose": "Focus state on inputs and textarea, with a solid ink border." },
+      { "name": "field-error-ring", "value": "0 0 0 3px rgba(163, 41, 31, 0.12)", "purpose": "Invalid state on inputs, with the error red border." },
+      { "name": "pill-line-ring", "value": "inset 0 0 0 1px rgba(30, 26, 22, 0.38)", "purpose": "Outline (line) pill edge; an inset ring, not a drop shadow." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Default for entrances, reveals, menu and press transforms." },
+      { "name": "ease-in-out", "value": "cubic-bezier(.65, 0, .35, 1)", "purpose": "Menu clip-path and the hero light drift." },
+      { "name": "press", "value": "transform .12s on :active, scale(.97)", "purpose": "Pill press feedback." },
+      { "name": "reveal", "value": "opacity and translateY(16px) over .7s, staggered 70ms", "purpose": "Scroll reveals of sections, rows and cards." },
+      { "name": "enter", "value": "opacity, translateY(18px), blur(6px) over .9s, staggered 100ms via --d", "purpose": "Hero entrance sequence (headline, lead, actions, photo)." },
+      { "name": "light-drift", "value": "28s ease-in-out alternate infinite", "purpose": "Soft light in hero and contact panels; paused under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "gutter-wide", "value": "640px" },
+      { "name": "desktop", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gold pill for the main contact action (WhatsApp).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">דברו איתי בוואטסאפ</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 12px 24px; border: 0; border-radius: 999px; background: var(--gold, #DDB04F); color: var(--gold-ink, #33250A); font: 500 16px/1.2 var(--sans); text-decoration: none; transition: transform .5s cubic-bezier(.16, 1, .3, 1), background-color .25s ease; } .ds-btn-primary:hover { background: var(--gold-hover, #E7BE62); } .ds-btn-primary:active { transform: scale(.97); transition-duration: .12s; } .ds-btn-primary:focus-visible { outline: 2px solid var(--ink, #1E1A16); outline-offset: 3px; border-radius: 999px; }"
+    },
+    {
+      "name": "Dark Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Warm ink pill for the form submit and the about-section action.",
+      "html": "<button class=\"ds-btn-dark\" type=\"button\">שלחו פרטים</button>",
+      "css": ".ds-btn-dark { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 12px 24px; border: 0; border-radius: 999px; background: var(--ink, #1E1A16); color: var(--on-night, #F3EEE8); font: 500 16px/1.2 var(--sans); cursor: pointer; transition: transform .5s cubic-bezier(.16, 1, .3, 1), background-color .25s ease; } .ds-btn-dark:hover { background: var(--ink-on-panel, #3A322B); } .ds-btn-dark:active { transform: scale(.97); transition-duration: .12s; } .ds-btn-dark:focus-visible { outline: 2px solid var(--ink, #1E1A16); outline-offset: 3px; border-radius: 999px; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Outline pill secondary action beside the primary.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">התקשרו 054-4447068</a>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 12px 24px; border: 0; border-radius: 999px; background: transparent; color: var(--ink, #1E1A16); box-shadow: inset 0 0 0 1px rgba(30, 26, 22, .38); font: 500 16px/1.2 var(--sans); text-decoration: none; transition: transform .5s cubic-bezier(.16, 1, .3, 1), background-color .25s ease; } .ds-btn-line:hover { background: rgba(30, 26, 22, .06); } .ds-btn-line:active { transform: scale(.97); transition-duration: .12s; } .ds-btn-line:focus-visible { outline: 2px solid var(--ink, #1E1A16); outline-offset: 3px; border-radius: 999px; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Cream rounded field with a thin ring on focus; error uses the red border.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"שם ההורה\">",
+      "css": ".ds-input { width: 100%; min-height: 52px; padding: 12px 16px; font: 400 17px/1.4 var(--sans); color: var(--ink, #1E1A16); background: rgba(255, 252, 248, .82); border: 1px solid rgba(30, 26, 22, .16); border-radius: 14px; transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; } .ds-input:hover { border-color: rgba(30, 26, 22, .32); } .ds-input:focus { outline: none; background: #FFFDFA; border-color: var(--ink, #1E1A16); box-shadow: 0 0 0 3px rgba(30, 26, 22, .12); } .ds-input[aria-invalid=\"true\"] { border-color: var(--err, #A3291F); box-shadow: 0 0 0 3px rgba(163, 41, 31, .12); }"
+    },
+    {
+      "name": "Track Card (light)",
+      "kind": "card",
+      "refersTo": "track-light",
+      "description": "Deep stone track card for the earlier, six-month path.",
+      "html": "<article class=\"ds-track ds-track-light\"><p class=\"ds-track-when\">כחצי שנה מראש</p><h3>הפרשה כולה + הפטרה</h3><p>לימוד הפרשה כולה והפטרה.</p></article>",
+      "css": ".ds-track { border-radius: 20px; padding: 32px 28px 30px; display: flex; flex-direction: column; gap: 6px; min-height: 300px; } .ds-track-light { background: var(--ground-2, #EAE3DB); color: var(--ink, #1E1A16); } .ds-track-light .ds-track-when { color: var(--bronze, #6B4E1E); } .ds-track h3 { font: 500 22px/1.3 var(--sans); } .ds-track p { color: var(--ink-2, #5A5047); } .ds-track-when { font: 300 clamp(36px, 4.4vw, 58px)/1.05 var(--serif); letter-spacing: -.015em; margin-bottom: auto; padding-bottom: 36px; }"
+    },
+    {
+      "name": "Track Card (night)",
+      "kind": "card",
+      "refersTo": "track-night",
+      "description": "Night track card for the three-month path; gold timing word.",
+      "html": "<article class=\"ds-track ds-track-night\"><p class=\"ds-track-when\">כשלושה חודשים מראש</p><h3>מפטיר + הפטרה</h3><p>לימוד המפטיר (חלק מהפרשה) והפטרה.</p></article>",
+      "css": ".ds-track { border-radius: 20px; padding: 32px 28px 30px; display: flex; flex-direction: column; gap: 6px; min-height: 300px; } .ds-track-night { background: var(--night, #1E1A16); color: var(--on-night, #F3EEE8); } .ds-track-night .ds-track-when { color: var(--gold, #DDB04F); } .ds-track h3 { font: 500 22px/1.3 var(--sans); } .ds-track p { color: var(--on-night-2, #BDB2A6); } .ds-track-when { font: 300 clamp(36px, 4.4vw, 58px)/1.05 var(--serif); letter-spacing: -.015em; margin-bottom: auto; padding-bottom: 36px; }"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Hairline-separated disclosure with serif question and a rotating marker on open.",
+      "html": "<details class=\"ds-faq\"><summary>מתי כדאי להתחיל?</summary><p>מומלץ להתחיל כחצי שנה מראש.</p></details>",
+      "css": ".ds-faq { border-bottom: 1px solid rgba(30, 26, 22, .13); } .ds-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; cursor: pointer; list-style: none; font: 400 clamp(20px, 2.2vw, 26px)/1.35 var(--serif); color: var(--ink, #1E1A16); } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary::after { content: \"\"; flex: none; width: 14px; height: 14px; background: linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat, linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat; transition: transform .45s cubic-bezier(.16, 1, .3, 1); } .ds-faq[open] summary::after { transform: rotate(135deg); } .ds-faq p { padding-bottom: 24px; color: var(--ink-2, #5A5047); max-width: 62ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Conversation",
+    "overview": "The page should read like a calm talk with a teacher, not a sales page and not a religious brochure. Warm stone ground, a single large taupe panel for the hero, near-black warm ink, and light serif display set in generous space. Nothing is ornamented: no parchment, no borders-as-decoration, no stacked equal cards. The thesis is reassurance, and the visual system carries it through restraint, slow motion, and one gold accent that only appears where the parent is asked to act.\n\nStructure comes from tone and hairlines rather than boxes. The page is built from four surfaces (stone ground, a slightly deeper ground-2, the taupe panel, and a night band for the footer and the second track), separated by 1px warm rules. Type does the heavy lifting: Noto Serif Hebrew Light at display sizes, Noto Sans Hebrew for reading text.\n\nMotion is slow and quiet. Entrances use an ease-out curve over roughly 0.7 to 0.9 seconds with a small stagger; the hero light drifts over 28 seconds; the approach quote lights up word by word on scroll. All of it is switched off under reduced motion.",
+    "keyCharacteristics": [
+      "Warm stone and taupe neutrals; one gold accent for primary actions and ticker dots.",
+      "Light (300) Hebrew serif display, clamp-scaled, tight tracking.",
+      "Pill buttons, 28px panels, 20px cards, 14px fields, hairline 1px rules.",
+      "Two-column editorial rhythm from 900px; single column and a fixed bottom action bar below.",
+      "Slow, soft motion (ease-out 0.5 to 0.9s, 28s light drift); fully disabled under reduced motion."
+    ],
+    "rules": [
+      { "name": "The Gold-Is-Action Rule", "body": "Gold fills only contact actions. The ticker's dots and the night track's timing word are the sole other gold. Gold text on stone is never used (1.75:1).", "section": "colors" },
+      { "name": "The Taupe-Panel Rule", "body": "Large tinted surfaces are reserved for the hero, the about block, and the contact block. Everything else sits on stone or deep stone.", "section": "colors" },
+      { "name": "The Serif-Speaks Rule", "body": "Anything that is a headline, a quote, or a track timing is set in the serif at weight 300. Sans appears only for reading text, titles that are short, and the form.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Tone and hairlines create depth; a shadow appears only for a floating control or a field state.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do set every headline and quote in Noto Serif Hebrew at weight 300, using the clamp sizes listed in Typography.",
+      "Do reserve Action Gold for contact actions, the ticker dots, and the night track's timing word.",
+      "Do use Soft Ink (#5A5047) for secondary text on stone and deep stone; use Ink Brown (#3A322B) for text on Taupe Panel.",
+      "Do separate sections and list items with 1px Hairlines, not boxes.",
+      "Do keep the pill shape on every button and the 28px radius on every large panel.",
+      "Do wrap phone numbers and email addresses in dir=\"ltr\" inside right-to-left text.",
+      "Do switch off the hero light drift, the quote word-by-word lighting, and entrance motion under prefers-reduced-motion."
+    ],
+    "donts": [
+      "Don't set gold text on stone (1.75:1); gold is for fills and the night track.",
+      "Don't use Soft Ink (#5A5047) on Taupe Panel (4.4:1, below AA for body text).",
+      "Don't add a second accent hue. The page has one gold and one bronze text tone; no third hue.",
+      "Don't add parchment textures, ornamental dividers, or stacked equal-weight cards; the direction rejects the busy religious-services template.",
+      "Don't use a heavy display weight (above 300) for headlines and quotes; the light serif is the voice.",
+      "Don't introduce a new tonal panel beyond hero, about, and contact.",
+      "Don't make the gold fill a background for body copy or secondary actions."
+    ]
+  }
+}

@@ -5,3 +5,8 @@ node_modules/
 .env.*
 .netlify/
 *.log
+
+# Impeccable session artifacts
+.impeccable/review/
+.impeccable/questions/
+.impeccable/hook.cache.json

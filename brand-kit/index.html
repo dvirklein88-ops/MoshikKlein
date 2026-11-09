@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Kit מושיק קליין</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#F3EEE8;--ground-2:#EAE3DB;--panel:#CBBFB5;--ink:#1E1A16;--ink-2:#5A5047;--ink-on-panel:#3A322B;--gold:#DDB04F;--gold-hover:#E7BE62;--gold-ink:#33250A;--bronze:#6B4E1E;--night:#1E1A16;--on-night:#F3EEE8;--on-night-2:#BDB2A6;--wa:#25D366;--err:#A3291F;--ok:#2E6B45;--line:rgba(30,26,22,.13);
+--display:"Rubik","Heebo",system-ui,sans-serif;--sans:"Heebo",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--ground);color:var(--ink);font:400 17px/1.65 var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+@media(min-width:640px){.wrap{padding:0 28px}}
+header.top{border-bottom:1px solid var(--line);padding:18px 0}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{font:700 24px var(--display)}
+.tag{font-size:14px;color:var(--ink-2)}
+.cover{background:linear-gradient(135deg,#D3C7BD,#CBBFB5 60%,#B9AB9F);border-radius:28px;margin:16px 0 0;display:grid;overflow:hidden}
+.cover .t{padding:48px 32px}
+.cover img{width:100%;max-width:420px;justify-self:center;align-self:end;display:block}
+@media(min-width:900px){.cover{grid-template-columns:1.1fr .9fr;min-height:520px}.cover .t{padding:72px 56px;align-self:center}}
+.kicker{font-size:14px;font-weight:500;letter-spacing:.04em;color:var(--ink-on-panel);margin-bottom:14px}
+h1{font:700 clamp(40px,7vw,80px)/1.05 var(--display);letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--bronze)}
+.cover p{margin-top:20px;color:var(--ink-on-panel);font-size:19px;max-width:44ch}
+section{padding:clamp(56px,8vw,100px) 0;border-bottom:1px solid var(--line)}
+.n{font:500 14px var(--sans);color:var(--ink-2);margin-bottom:8px}
+h2{font:600 clamp(30px,4vw,48px)/1.1 var(--display);letter-spacing:-.015em;margin-bottom:12px}
+.lead{color:var(--ink-2);max-width:60ch;margin-bottom:36px}
+.sw{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.c{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff6}
+.c .chip{height:120px;display:flex;align-items:flex-end;padding:12px 14px;font:500 14px var(--sans)}
+.c .m{padding:12px 14px 14px;font-size:14px;line-height:1.5}
+.c b{display:block;font-size:16px}
+.c code{direction:ltr;unicode-bidi:isolate;font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--ink-2)}
+.c .m span{display:block;color:var(--ink-2);font-size:13px}
+.big .chip{height:170px}
+h3.sub{font:600 20px var(--display);margin:40px 0 14px}
+.type{display:grid;gap:14px}
+@media(min-width:900px){.type{grid-template-columns:1fr 1fr}}
+.tp{border:1px solid var(--line);border-radius:20px;padding:28px}
+.tp .lab{font-size:14px;color:var(--ink-2);margin-bottom:10px}
+.tp .a{font:700 64px/1 var(--display)}
+.tp .a2{font:400 64px/1 var(--sans)}
+.tp .spec{margin-top:14px;font-size:14px;color:var(--ink-2)}
+.scale>div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.scale small{font-size:13px;color:var(--ink-2);white-space:nowrap;direction:ltr}
+.btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:12px 24px;border-radius:999px;font:500 16px var(--sans);border:1px solid transparent;cursor:pointer}
+.b-gold{background:var(--gold);color:var(--gold-ink)}
+.b-dark{background:var(--ink);color:var(--on-night)}
+.b-line{border-color:rgba(30,26,22,.35);color:var(--ink);background:transparent}
+.b-wa{background:var(--wa);color:#0b2e17}
+.cap{font-size:13px;color:var(--ink-2);margin-top:8px}
+.bw{display:flex;flex-direction:column;align-items:flex-start}
+.tracks{display:grid;gap:14px}
+@media(min-width:640px){.tracks{grid-template-columns:1fr 1fr}}
+.tr{border-radius:20px;padding:32px 28px;min-height:260px;display:flex;flex-direction:column}
+.tr h4{font:600 36px/1.15 var(--display);margin-bottom:auto;padding-bottom:30px}
+.tr.a{background:var(--night);color:var(--on-night)}.tr.a h4{color:var(--gold)}.tr.a p{color:var(--on-night-2)}
+.tr.b{background:var(--ground-2)}.tr.b h4{color:var(--bronze)}.tr.b p{color:var(--ink-2)}
+.tr strong{font-weight:700}
+.field{max-width:420px}
+.field label{display:block;font-weight:500;font-size:15px;margin-bottom:6px}
+.field .in{height:52px;border-radius:14px;background:rgba(255,252,248,.82);border:1px solid var(--line);padding:12px 16px;color:var(--ink-2)}
+.rad{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.rad div{background:var(--ground-2);height:110px;display:flex;align-items:flex-end;padding:12px;font-size:14px;border:1px solid var(--line)}
+.panel{background:var(--panel);border-radius:28px;padding:40px 32px;margin-top:14px;color:var(--ink-on-panel)}
+.voice{display:grid;gap:14px}
+@media(min-width:760px){.voice{grid-template-columns:1fr 1fr}}
+.do,.dont{border-radius:20px;padding:26px 28px}
+.do{background:var(--ground-2)}.dont{border:1px solid var(--line)}
+.do h4,.dont h4{font:600 20px var(--display);margin-bottom:10px}
+.do li,.dont li{margin:0 20px 8px 0}
+.pill{display:inline-block;background:var(--ground-2);border-radius:999px;padding:6px 16px;font-size:15px;margin:0 0 8px 8px}
+.logos{display:grid;gap:14px}
+@media(min-width:760px){.logos{grid-template-columns:repeat(3,1fr)}}
+.lg{border-radius:20px;height:180px;display:flex;align-items:center;justify-content:center;font:700 34px var(--display);flex-direction:column;gap:4px;border:1px solid var(--line)}
+.lg small{font:400 13px var(--sans);opacity:.75}
+footer{padding:40px 0;font-size:14px;color:var(--ink-2)}
+.nowrap{direction:ltr;unicode-bidi:isolate}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="logo">מושיק קליין</div><div class="tag">Brand Kit · v1.0</div></div></header>
+
+<main class="wrap">
+<div class="cover">
+  <div class="t">
+    <div class="kicker">BRAND KIT · מורה לבר מצווה</div>
+    <h1>הזהות של <em>מושיק קליין</em></h1>
+    <p>צבעים, טיפוגרפיה, כפתורים וקול המותג, כפי שהם מופיעים באתר. חם, רגוע ובקצב של הילד.</p>
+  </div>
+  <img src="hero.webp" alt="מושיק קליין">
+</div>
+
+<section id="essence">
+  <div class="n">01</div><h2>מהות המותג</h2>
+  <p class="lead">מורה פרטי אחד, אישי, עם 20+ שנות ניסיון, שמחבר ילדים לעולם התורה בטבעיות. השיחה עם הורים היא שיחה רגועה, לא דף מכירה ולא עלון דתי.</p>
+  <div class="voice">
+    <div class="do"><h4>הסלוגן</h4><p style="font:600 28px/1.3 var(--display);color:var(--bronze)">הכי טוב שנדבר על זה</p></div>
+    <div class="do"><h4>הבטחת המותג</h4><p>ליווי חם שמכבד את הבית שלכם, את הקצב של הילד ואת המסורת של המשפחה.</p></div>
+  </div>
+  <h3 class="sub">עקרונות</h3>
+  <span class="pill">שקט ובטחון במקום מכירה</span><span class="pill">מכבדים כל בית</span><span class="pill">בקצב של הילד</span><span class="pill">לחיצה אחת ליצירת קשר</span><span class="pill">שום דבר מומצא</span>
+</section>
+
+<section id="logo">
+  <div class="n">02</div><h2>סימן מותג</h2>
+  <p class="lead">אין לוגו מחייב. השם נכתב כוורדמארק בפונט Rubik Bold. הסימן ש משמש רק כאייקון דפדפן (favicon).</p>
+  <div class="logos">
+    <div class="lg" style="background:var(--ground)">מושיק קליין<small>על רקע אבן</small></div>
+    <div class="lg" style="background:var(--night);color:var(--on-night)">מושיק קליין<small>על רקע לילה</small></div>
+    <div class="lg" style="background:var(--panel);color:var(--ink)">מושיק קליין<small>על רקע טאופ</small></div>
+  </div>
+  <div class="cap">מרווח חופשי מינימלי סביב השם: גובה האות מ. אין למתוח, לסובב או להוסיף צל.</div>
+</section>
+
+<section id="colors">
+  <div class="n">03</div><h2>צבעים</h2>
+  <p class="lead">פלטה חמה של אבן וטאופ, דיו חום כמעט שחור, וצבע פעולה זהוב אחד.</p>
+  <h3 class="sub" style="margin-top:0">משטחים</h3>
+  <div class="sw big">
+    <div class="c"><div class="chip" style="background:#F3EEE8">רקע הדף</div><div class="m"><b>Stone Ground</b><code>#F3EEE8</code><span>רקע ראשי וטקסט על כהה</span></div></div>
+    <div class="c"><div class="chip" style="background:#EAE3DB">כרטיסים</div><div class="m"><b>Deep Stone</b><code>#EAE3DB</code><span>כרטיס מסלול, על אודות</span></div></div>
+    <div class="c"><div class="chip" style="background:#CBBFB5">פאנל</div><div class="m"><b>Taupe Panel</b><code>#CBBFB5</code><span>Hero ויצירת קשר</span></div></div>
+    <div class="c"><div class="chip" style="background:#1E1A16;color:#F3EEE8">פוטר</div><div class="m"><b>Night</b><code>#1E1A16</code><span>פוטר ומסלול כהה</span></div></div>
+  </div>
+  <h3 class="sub">טקסט ופעולה</h3>
+  <div class="sw">
+    <div class="c"><div class="chip" style="background:#1E1A16;color:#F3EEE8">Aa</div><div class="m"><b>Warm Ink</b><code>#1E1A16</code><span>טקסט ראשי</span></div></div>
+    <div class="c"><div class="chip" style="background:#5A5047;color:#fff">Aa</div><div class="m"><b>Soft Ink</b><code>#5A5047</code><span>טקסט משני</span></div></div>
+    <div class="c"><div class="chip" style="background:#3A322B;color:#fff">Aa</div><div class="m"><b>Ink on Panel</b><code>#3A322B</code><span>טקסט על טאופ</span></div></div>
+    <div class="c"><div class="chip" style="background:#6B4E1E;color:#fff">Aa</div><div class="m"><b>Bronze</b><code>#6B4E1E</code><span>הדגשת כותרות</span></div></div>
+    <div class="c"><div class="chip" style="background:#DDB04F;color:#33250A">פעולה</div><div class="m"><b>Action Gold</b><code>#DDB04F</code><span>כפתורי יצירת קשר בלבד</span></div></div>
+    <div class="c"><div class="chip" style="background:#33250A;color:#DDB04F">Aa</div><div class="m"><b>Gold Ink</b><code>#33250A</code><span>טקסט על זהב</span></div></div>
+    <div class="c"><div class="chip" style="background:#25D366;color:#0b2e17">WhatsApp</div><div class="m"><b>WhatsApp</b><code>#25D366</code><span>כפתורי וואטסאפ</span></div></div>
+    <div class="c"><div class="chip" style="background:#A3291F;color:#fff">שגיאה</div><div class="m"><b>Error</b><code>#A3291F</code><span>אימות טפסים</span></div></div>
+  </div>
+  <div class="cap">כלל: זהב הוא צבע פעולה. לא משתמשים בטקסט זהוב על רקע אבן (ניגודיות 1.75:1).</div>
+</section>
+
+<section id="type">
+  <div class="n">04</div><h2>טיפוגרפיה</h2>
+  <p class="lead">שני פונטים מ-Google Fonts, ללא עיצוב מנופח. ההיררכיה נבנית מגודל ומשקל.</p>
+  <div class="type">
+    <div class="tp"><div class="lab">כותרות · Rubik 500/600/700</div><div class="a">אבגד Aa</div><div class="spec">h1 700 · כותרות משנה 600 · clamp(34px, 5vw, 60px)</div></div>
+    <div class="tp"><div class="lab">טקסט · Heebo 400/500/700</div><div class="a2">אבגד Aa</div><div class="spec">גוף 17px / 1.65 · לידים 18-20px · ניווט 15px</div></div>
+  </div>
+  <div class="scale" style="margin-top:28px">
+    <div><span style="font:700 clamp(36px,6vw,64px)/1.05 var(--display)">מורה לבר מצווה</span><small>H1 · Rubik 700</small></div>
+    <div><span style="font:600 clamp(28px,4vw,44px)/1.1 var(--display)">מה לומדים</span><small>H2 · Rubik 600</small></div>
+    <div><span style="font:500 22px var(--sans)">קריאה בתורה, הפטרה והנחת תפילין</span><small>Title · Heebo 500 22px</small></div>
+    <div><span>יום הבר מצווה יהיה רגע של גאווה, לא של לחץ.</span><small>Body · Heebo 400 17px</small></div>
+  </div>
+</section>
+
+<section id="components">
+  <div class="n">05</div><h2>כפתורים ורכיבים</h2>
+  <p class="lead">כפתורי פיל מלאים, גובה 50px. רכיבים שטוחים, בלי צללים, עם קו דק של 1px.</p>
+  <div class="btns">
+    <div class="bw"><span class="btn b-gold">דברו איתי בוואטסאפ</span><span class="cap">ראשי · Gold</span></div>
+    <div class="bw"><span class="btn b-wa">שלחו הודעה</span><span class="cap">WhatsApp</span></div>
+    <div class="bw"><span class="btn b-dark">שלחו פנייה</span><span class="cap">כהה</span></div>
+    <div class="bw"><span class="btn b-line"><span class="nowrap">054-4447068</span> התקשרו</span><span class="cap">קו מתאר</span></div>
+  </div>
+  <h3 class="sub">כרטיסי מסלול</h3>
+  <div class="tracks">
+    <div class="tr a"><h4>הפרשה כולה + הפטרה</h4><p><strong style="color:var(--gold)">מתחילים כ-6 חודשים לפני</strong><br>מסלול מלא ורגוע.</p></div>
+    <div class="tr b"><h4>מפטיר + הפטרה</h4><p><strong style="color:var(--bronze)">מתחילים כ-3 חודשים לפני</strong><br>מסלול ממוקד וקצר.</p></div>
+  </div>
+  <h3 class="sub">שדה טופס</h3>
+  <div class="field"><label>שם מלא</label><div class="in">השם שלכם</div></div>
+  <h3 class="sub">פאנל טאופ</h3>
+  <div class="panel"><p style="font:600 28px/1.2 var(--display);color:var(--ink)">בואו נדבר</p><p>פאנל עם פינות 28px. משמש ל-Hero ולאזור יצירת הקשר.</p></div>
+  <h3 class="sub">רדיוסים</h3>
+  <div class="rad">
+    <div style="border-radius:999px">Pill · 999</div>
+    <div style="border-radius:28px">Panel · 28</div>
+    <div style="border-radius:20px">Card · 20</div>
+    <div style="border-radius:14px">Field · 14</div>
+  </div>
+</section>
+
+<section id="voice" style="border-bottom:0">
+  <div class="n">06</div><h2>קול ותוכן</h2>
+  <div class="voice">
+    <div class="do"><h4>כן</h4><ul><li>חם, אישי, בגובה העיניים</li><li>מרגיעים הורים: "בקצב של הילד"</li><li>מכבדים גם משפחות חילוניות</li><li>נוסח אשכנזי, מודיעין-מכבים-רעות ובזום</li></ul></div>
+    <div class="dont"><h4>לא</h4><ul><li>שפת מכירות או לחץ</li><li>דרשות והטפה</li><li>מחירים באתר</li><li>המלצות או הוכחות מומצאות</li></ul></div>
+  </div>
+  <h3 class="sub">פרטי קשר</h3>
+  <p><span class="nowrap">054-4447068</span> · moshikklein@gmail.com</p>
+</section>
+</main>
+<footer><div class="wrap">Brand Kit · מושיק קליין · מבוסס על האתר בגרסה הנוכחית</div></footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Meta Ad Flyer</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{--ground:#F3EEE8;--ground-2:#EAE3DB;--panel:#CBBFB5;--ink:#1E1A16;--ink-2:#5A5047;--ink-on-panel:#3A322B;--gold:#DDB04F;--gold-ink:#33250A;--bronze:#6B4E1E;--night:#1E1A16;--on-night:#F3EEE8;--on-night-2:#BDB2A6;--line:rgba(30,26,22,.13);
+--display:"Rubik","Heebo",sans-serif;--sans:"Heebo",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--ground)}
+body{color:var(--ink);font-family:var(--sans)}
+
+.ad{width:1080px;height:1350px;background:var(--ground);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;padding:56px 60px 60px}
+
+.top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:30px}
+.wm{font:700 46px/1 var(--display);letter-spacing:-.01em}
+.role{font:500 26px/1 var(--sans);color:var(--ink-2)}
+
+.photo{position:relative;border-radius:28px;overflow:hidden;height:680px;background:var(--panel)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+.badge{position:absolute;top:28px;right:28px;background:var(--night);color:var(--on-night);
+  border-radius:999px;padding:14px 26px;font:500 25px/1 var(--sans)}
+.ltr{direction:ltr;unicode-bidi:isolate}.badge b{color:var(--gold);font:700 28px/1 var(--display);margin-left:6px}
+
+h1{font:700 70px/1.1 var(--display);letter-spacing:-.02em;margin-top:40px}
+h1 span,h1 em{display:block}h1 em{font-style:normal;color:var(--bronze)}
+.sub{font:400 31px/1.4 var(--sans);color:var(--ink-2);margin-top:18px}
+
+.bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.cta{display:inline-flex;align-items:center;gap:14px;height:92px;padding:0 44px;border-radius:999px;
+  background:var(--gold);color:var(--gold-ink);font:700 34px/1 var(--sans);white-space:nowrap}
+.cta svg{width:38px;height:38px}
+.meta{text-align:left;font:500 25px/1.45 var(--sans);color:var(--ink-2)}
+.meta .ph{direction:ltr;unicode-bidi:isolate;display:block;font:700 34px/1.2 var(--display);color:var(--ink)}
+
+/* Story / Reels 9:16 */
+.ad.story{height:1920px;padding:150px 64px 280px}
+.ad.story .photo{height:900px}
+.ad.story h1{font-size:86px;margin-top:56px}
+.ad.story .sub{font-size:36px}.ad.story .bottom{margin-top:72px}
+.ad.story .bottom{flex-direction:column;align-items:stretch;gap:28px}
+.ad.story .cta{justify-content:center;height:108px;font-size:38px}
+.ad.story .meta{text-align:center}
+</style>
+</head>
+<body>
+<div class="ad" id="ad">
+  <div class="top">
+    <div class="wm">מושיק קליין</div>
+    <div class="role">מורה לבר מצווה</div>
+  </div>
+
+  <div class="photo">
+    <img src="moshik-torah-512.png" alt="מושיק קליין לומד קריאה בתורה עם תלמיד">
+    <div class="badge"><b class="ltr">20+</b>שנות ניסיון</div>
+  </div>
+
+  <h1><span>יום הבר מצווה</span><span>יהיה רגע של גאווה,</span><em>לא של לחץ.</em></h1>
+  <p class="sub">קריאה בתורה, הפטרה והנחת תפילין.<br>ליווי אישי וחם, בקצב של הילד.</p>
+
+  <div class="bottom">
+    <div class="cta">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+      דברו איתי בוואטסאפ
+    </div>
+    <div class="meta"><span class="ph">054-4447068</span>מודיעין-מכבים-רעות ובזום</div>
+  </div>
+</div>
+<script>if(location.hash==='#story')document.getElementById('ad').classList.add('story')</script>
+</body>
+</html>
