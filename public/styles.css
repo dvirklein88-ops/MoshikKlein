@@ -325,6 +325,8 @@ h1 em { font-style: normal; color: #6B4E1E; }
 .f-links { display: grid; gap: 4px; justify-items: start; }
 .f-links a:hover { color: var(--on-night); }
 .copy { font-size: 14px; }
+.copy a { text-decoration: underline; text-decoration-color: var(--line-night); text-underline-offset: 3px; }
+.copy a:hover, .copy a[aria-current="page"] { color: var(--on-night); text-decoration-color: currentColor; }
 .f-title { color: var(--on-night); font-weight: 500; margin-bottom: 6px; }
 .f-pages ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .f-pages a { text-decoration: underline; text-decoration-color: var(--line-night); text-underline-offset: 3px; }

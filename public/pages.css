@@ -97,3 +97,9 @@
 
 /* Images in the page hero */
 .page-hero-fig img { border-radius: var(--r-card); }
+
+/* ---------- Privacy page ---------- */
+.page-hero-text { grid-template-columns: 1fr !important; }
+.page-hero-text .page-hero-copy { padding-bottom: 36px; }
+.updated { margin-top: 18px; font-size: 15px; color: var(--ink-on-panel); }
+.dots.sub { margin-top: 10px; }
